@@ -39,3 +39,19 @@ truncate("Hi everyone!", 20) = "Hi everyone!"
 ```javascript 
 alert( extractCurrencyValue('$120') === 120 ); // true
 ```
+
+
+## 解答
+
+#### 第一题 首字母大写
+思路
+实现
+#### 第二题 检查指定字符串
+思路
+实现
+#### 第三题 截断文本
+思路
+实现
+#### 第四题 提取货币
+思路
+实现
