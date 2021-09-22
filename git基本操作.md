@@ -166,9 +166,14 @@ git push -u origin 分支名
 
 * 问题描述：
 > 在 gitlab 仓库已经添加了 ssh key 之后，用 vsCode 或者 sourcetree 操作仓库时，会弹出提示
+* 问题分析：
+> mac每次重启机器都需要 root 密码获取 ~/.ssh/id_rsa.pub 的 key
 * 问题日志：
 > Git: Permission denied, please try again.
 * 解决办法：
 ```
-ssh-add ~/.ssh/id_rsa_gitlab
+ssh-add ~/.ssh/你生成ssh密钥文件名
+例：
+ssh-add ~/.ssh/id_rsa
 ```
+<em>ssh-add 这个命令不是用来永久性的记住你所使用的私钥的。实际上，它的作用只是把你指定的私钥添加到 ssh-agent 所管理的一个 session 当中</em>
