@@ -159,3 +159,16 @@ git remote add origin "远程仓库地址"
 ```
 git push -u origin 分支名
 ```
+
+# 问题
+
+## 权限被拒绝，请重试
+
+* 问题描述：
+> 在 gitlab 仓库已经添加了 ssh key 之后，用 vsCode 或者 sourcetree 操作仓库时，会弹出提示
+* 问题日志：
+> Git: Permission denied, please try again.
+* 解决办法：
+```
+ssh-add ~/.ssh/id_rsa_gitlab
+```
