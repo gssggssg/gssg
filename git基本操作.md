@@ -43,9 +43,16 @@ git config --global user.name "GitHub账号"
 # 配置邮箱
 git config --global user.email "GitHub注册邮箱"
 ```
-查看全局配置结果
+查看配置
 ```
+# 列出当前配置：
+git config --list
+# 列出repository配置：
+git config --local --list
+# 列出全局配置：
 git config --global --list
+# 列出系统配置：
+git config --system --list
 ```
 ## 生成ssh密钥
 ```
