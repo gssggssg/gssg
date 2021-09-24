@@ -11,9 +11,9 @@
 4. 提取字符串
 
 #### 1. 首字母大写
-写一个函数 ucFirst(str)，并返回首字母大写的字符串 str，例如：
+写一个函数 setTitleCase(string)，并返回首字母大写的字符串 str，例如：
 ```javascript 
-ucFirst("john") == "John";
+setTitleCase("gssg") == "Gssg";
 ```
 #### 2. 检查指定字符串
 写一个函数 checkSpam(str)，如果 str 包含 viagra 或 XXX 就返回 true，否则返回 false。
@@ -44,8 +44,26 @@ alert( extractCurrencyValue('$120') === 120 ); // true
 ## 解答
 
 #### 第一题 首字母大写
-思路
-实现
+写一个函数 setTitleCase(str)，并返回首字母大写的字符串 str
+
+思路：
+1. 在js中字符串是不能更改，所以我们不能在有的基础上改，但我们可以新建一个新字符串，这个新字符串首字母大写
+2. 获取到字符串第一个字母，并将其转化为大写
+
+⚠️ _注意：判断字符串是否为空，当字符串为空的时候程序报错_
+
+实现：
+```JavaScript
+
+function setTitleCase(string) {
+    //  判断传进来的字符串是否为 真
+  if (!string) return string;
+
+  return string[0].toUpperCase() + string.slice(1);
+}
+
+setTitleCase("gssg");  // Gssg
+```
 #### 第二题 检查指定字符串
 思路
 实现
