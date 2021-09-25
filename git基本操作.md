@@ -170,7 +170,7 @@ git push -u origin 分支名
 # 问题
 
 ## 权限被拒绝，请重试
-
+___Permission denied, please try again.___
 * 问题描述：
 > 在 gitlab 仓库已经添加了 ssh key 之后，用 vsCode 或者 sourcetree 操作仓库时，会弹出提示
 * 问题分析：
@@ -183,4 +183,4 @@ ssh-add ~/.ssh/你生成ssh密钥文件名
 例：
 ssh-add ~/.ssh/id_rsa
 ```
-<em>ssh-add 这个命令不是用来永久性的记住你所使用的私钥的。实际上，它的作用只是把你指定的私钥添加到 ssh-agent 所管理的一个 session 当中</em>
+<em>ssh-add 这个命令不是用来永久性的记住你所使用的私钥的。实际上，它的作用只是把你指定的私钥添加到 ssh-agent 所管理的一个 session 当中,这个方法不是一劳永逸</em>
