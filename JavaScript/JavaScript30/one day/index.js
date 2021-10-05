@@ -5,10 +5,10 @@ console.log( listLi )
 
 listLi.map((listLis)=>{
   listLis.onclick = (nnnn) => {
-    console.log(`nnnn`, nnnn)
+    console.log(``, )
   }
 })
 
 listButton.onclick= () => {
-  console.log("你好呀")
+  console.log("")
 }
