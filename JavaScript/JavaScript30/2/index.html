@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width:100px;
+            height:100px;
+            background-color:blueviolet;
+        }
+        .gaibian{
+            background-color: red;
+            font-size: 40px;
+            width: 200px;
+            height: 200px;
+            margin-top: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div>文本</div>
+    <script>
+        var text=document.querySelector('div');
+
+        text.onclick=function(){
+            // this.style.backgroundColor='red';
+            //this.style.color='#fff';
+            //this.style.fontSize='25px';
+            //this.style.marginTop='100px';
+            //让我们当前名字的类名改为了  change
+
+            //2.我们可以通过   修改元素的className更改元素样式   适合于样式较多或者功能复杂的情况
+            //3.如果想要保留原先的类名，我们可以这么做    多类名选择器
+
+            //this.className='change';
+            this.className='gaibian';
+        }
+    </script>
+</body>
+</html> 

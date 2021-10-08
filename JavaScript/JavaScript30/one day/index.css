@@ -26,7 +26,7 @@ li{
   overflow: hidden;
 }
 .main ul li{
-  transition: all 0.3s ease-in-out;
+
   height: 92px;
   width: 8%;
   border: 4px solid #000;
@@ -35,10 +35,9 @@ li{
   position: relative;
 }
 
-.main ul li:hover{
-
+.main ul .active{
   border: 4px solid rgba(0, 0,0,0.3);
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .main ul li p {
@@ -47,7 +46,6 @@ li{
   color: #fff;
   font-size: 38px;
   font-weight: bold;
-  
 }
 .main ul li span{
   position: absolute;
