@@ -10,6 +10,7 @@ const secondHand = document.getElementById("secondHand");
 
 let data;
 
+turn(new Date())
 /*
   hourHandNum  24时
   minuteHandNum 60分
