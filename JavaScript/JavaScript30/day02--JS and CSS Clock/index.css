@@ -21,8 +21,9 @@
   width: 450px;
   height: 450px;
   background-color: transparent;
-  border: 4px solid #000;
+  /* border: 4px solid #000; */
   border-radius: 50%;
+  box-shadow: 0 0 50px 4px #000;
 }
 
 #hourHand,#minuteHand,#secondHand,.content::after,.content::before{
@@ -32,6 +33,7 @@
   right: 0;
   bottom: 0;
   margin: auto;
+
 }
 
 /* 时针 */
