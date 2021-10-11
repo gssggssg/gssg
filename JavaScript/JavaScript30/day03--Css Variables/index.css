@@ -1,0 +1,54 @@
+*{
+  padding: 0;
+  margin: 0 ;
+}
+
+li{
+  list-style: none;
+}
+
+.content{
+  width: 80%;
+  margin: 5% auto 0;
+}
+
+.content .control{
+  display: flex;
+  margin: 20px auto 40px;
+}
+
+.content .control ul{
+  width: 100%;
+  display: flex;
+  margin: auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.content .control ul li{
+  background-color: #fff;
+  box-shadow: 0 0 16px 4px #3677ad;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.content .control ul li p{
+  line-height: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.content .response{
+
+}
+
+.content .response .img{
+  margin: auto;
+  width: 900px;
+  height: 500px;
+  border: 10px solid #3677ad;
+  border-radius: 8px;
+  background-image: url(./img.png);
+}
