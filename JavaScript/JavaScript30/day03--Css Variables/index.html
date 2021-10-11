@@ -11,30 +11,26 @@
     <div class="content">
 
         <div class="control">
-
             <ul>
                 <li>
-                    <p>Spacing</p>
-                    <input type="range" name="points" min="0" max="40" step="1" value="1" id="Spacing" />
+                    <label for="Spacing">Spacing:</label>
+                    <input type="range" name="points" min="0" max="180" step="1" value="1" id="Spacing" />
                     <!-- max 允许的最大值； min 允许的最小值； step 规定合法的数字间隔； value 规定的默认值-->
                 </li>
                 <li>
-                    <p>Blur</p>
-                    <input type="range" name="points" min="0" max="40" step="1" value="0" id="Blur" />
+                    <label for="Blur">Blur:</label>
+                    <input type="range" name="points" min="0" max="20" step="1" value="0" id="Blur" />
                     <!-- max 允许的最大值； min 允许的最小值； step 规定合法的数字间隔； value 规定的默认值-->
                 </li>
                 <li>
-                    <p>Color</p>
+                    <label for="Color">Color:</label>
                     <input type="color" name="color" value="#3677ad" id="Color" />
                     <!-- value 规定的默认值-->
                 </li>
             </ul>
         </div>
 
-        <div class="response">
-            <div class="img" id="responseImg">
-            </div>
-        </div>
+        <img src="./img.png" id="responseImg" />
 
     </div>
 

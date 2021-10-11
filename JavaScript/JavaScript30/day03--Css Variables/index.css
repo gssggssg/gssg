@@ -7,8 +7,12 @@ li{
   list-style: none;
 }
 
+body {
+  text-align: center;
+  background: #193549;
+}
+
 .content{
-  width: 80%;
   margin: 5% auto 0;
 }
 
@@ -33,22 +37,14 @@ li{
   padding: 20px;
 }
 
-.content .control ul li p{
+.content .control ul li label{
   line-height: 30px;
   font-size: 20px;
   font-weight: bold;
   text-align: center;
 }
 
-.content .response{
-
-}
-
-.content .response .img{
-  margin: auto;
+.content img{
   width: 900px;
-  height: 500px;
-  border: 10px solid #3677ad;
-  border-radius: 8px;
-  background-image: url(./img.png);
+  height: 100%;
 }

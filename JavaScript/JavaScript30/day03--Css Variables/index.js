@@ -5,19 +5,19 @@ const Color = document.getElementById("Color")
 //
 const responseImg = document.getElementById("responseImg")
 
-Spacing.onclick = () =>{
-  responseImg.style.borderWidth = `${Spacing.value}px`
+Spacing.oninput = () =>{
+  responseImg.style.padding = `${Spacing.value}px`
 }
 
-Blur.onclick = () =>{
+Blur.oninput = () =>{
   responseImg.style.filter = `blur(${Blur.value}px)`
 }
 
-Color.onchange = () =>{
-  responseImg.style.borderColor = `${Color.value}`
+Color.oninput = () =>{
+  responseImg.style.backgroundColor = `${Color.value}`
 }
 
 //初始化
-Spacing.onclick();
-Blur.onclick();
-Color.onchange();
+Spacing.oninput();
+Blur.oninput();
+Color.oninput();
