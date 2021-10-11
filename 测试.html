@@ -1,100 +1,60 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>JS + CSS Clock</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            position:relative;     /*相对定位 */
+            width:400px;
+            border-bottom: 1px solid rgb(65, 65, 65);
+            margin:100px auto;
+        }
+        .box input{
+            width:370px;
+            height:30px;
+            border:0px;
+            outline:none;     /*把input边框去掉*/
+        }
+        .box img{
+            position:absolute;    /*绝对定位 */
+            top: 2px;
+            right: 2px;
+            width:24px;
+        }
+    </style>
 </head>
 <body>
-
-
-    <div class="clock">
-      <div class="clock-face">
-        <div class="hand hour-hand"></div>
-        <div class="hand min-hand"></div>
-        <div class="hand second-hand"></div>
-      </div>
+    <div class="box">
+        <label for="">
+            <img src="../images/biyan.png" alt="" id="eye">
+        </label>
+        <input type="password" id="pwd">
     </div>
-
-
-  <style>
-    html {
-      background: #018DED url(https://unsplash.it/1500/1000?image=881&blur=5);
-      background-size: cover;
-      font-family: 'helvetica neue';
-      text-align: center;
-      font-size: 10px;
-    }
-
-    body {
-      margin: 0;
-      font-size: 2rem;
-      display: flex;
-      flex: 1;
-      min-height: 100vh;
-      align-items: center;
-    }
-
-    .clock {
-      width: 30rem;
-      height: 30rem;
-      border: 20px solid white;
-      border-radius: 50%;
-      margin: 50px auto;
-      position: relative;
-      padding: 2rem;
-      box-shadow:
-        0 0 0 4px rgba(0,0,0,0.1),
-        inset 0 0 0 3px #EFEFEF,
-        inset 0 0 10px black,
-        0 0 10px rgba(0,0,0,0.2);
-    }
-
-    .clock-face {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transform: translateY(-3px); /* account for the height of the clock hands */
-    }
-
-    .hand {
-      width: 50%;
-      height: 6px;
-      background: black;
-      position: absolute;
-      top: 50%;
-      transform-origin: 100%;
-      transform: rotate(90deg);
-      transition: all 0.05s;
-      transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
-    }
-</style>
-
-<script>
-  const secondHand = document.querySelector('.second-hand');
-  const minsHand = document.querySelector('.min-hand');
-  const hourHand = document.querySelector('.hour-hand');
-
-  function setDate() {
-    const now = new Date();
-
-    const seconds = now.getSeconds();
-    const secondsDegrees = ((seconds / 60) * 360) + 90;
-    secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
-
-    const mins = now.getMinutes();
-    const minsDegrees = ((mins / 60) * 360) + ((seconds/60)*6) + 90;
-    minsHand.style.transform = `rotate(${minsDegrees}deg)`;
-
-    const hour = now.getHours();
-    const hourDegrees = ((hour / 12) * 360) + ((mins/60)*30) + 90;
-    hourHand.style.transform = `rotate(${hourDegrees}deg)`;
-  }
-
-  setInterval(setDate, 1000);
-
-  setDate();
-
-</script>
+    <script>
+        //1.核心思路：点击眼睛按钮，把密码框类型改为文本框类型就可以看见里面的密码
+        //2.一个按钮两个状态，点击一次，切换文本框，继续点击一次切换为密码框
+        //3.算法：利用一个flag变量，来判断flag的值，如果是1就切换为文本框，flag设置为0，如果是0就切换为密码框，flag设置为1
+        //获取元素
+        var eye=document.getElementById('eye');
+        var pwd=document.getElementById('pwd');
+        //注册事件   处理程序
+        var flag=0;
+        eye.onclick=function(){
+            //点击一次之后    flag一定要变化
+            if(flag==0){
+                 pwd.type="text";
+                 flag=1;    //赋值操作
+                 eye.src="../images/kaiyan.png";
+            }else{
+                pwd.type="password";
+                flag=0;
+                eye.src="../images/biyan.png";
+            }
+           
+        }
+    </script>
 </body>
 </html>

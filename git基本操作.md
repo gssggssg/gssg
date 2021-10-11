@@ -193,3 +193,16 @@ ssh-add ~/.ssh/你生成ssh密钥文件名
 ssh-add ~/.ssh/id_rsa
 ```
 <em>ssh-add 这个命令不是用来永久性的记住你所使用的私钥的。实际上，它的作用只是把你指定的私钥添加到 ssh-agent 所管理的一个 session 当中,这个方法不是一劳永逸</em>
+
+## 由于电子邮件隐私限制，推送被拒绝
+___Your push would publish a private email address.___
+
+* 问题描述：
+> 在推送代码的时候出现问题，拉取代码可以拉取
+* 问题分析：
+> 由于电子邮箱的限制
+* 问题日志：
+> ! [remote rejected] main -> main (push declined due to email privacy restrictions)
+* 解决办法：
+
+`setting`->`emails`->`Keep my email address private` 将这个单选框给去掉，再重新试试
