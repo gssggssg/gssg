@@ -29,3 +29,9 @@ document.documentElement是专门获取html这个标签的
 获取body的方法（document.body）
 document.body是专门获取body这个标签的。
 ```
+
+
+js事件
+
+
+oninput //当input内的value发生改变时，在value改变时实时触发，但是通过js改变value时不会触发
