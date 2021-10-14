@@ -1,0 +1,39 @@
+*{
+  padding: 0;
+  margin: 0 ;
+  transition: all 0.8s ease-in-out;
+}
+.content{
+  display: flex;
+  overflow:hidden;
+}
+.content .flexList{
+  flex: 1;
+  line-height: 100vh;
+  text-align: center;
+  border: 1px solid #666;
+  position: relative;
+}
+
+.flexListp{
+  flex: 5;
+}
+.flexBot,.flexTop{
+  width: 100%;
+  position: absolute;
+  height: 30%;
+  background-color: #eee; 
+  display: flex;
+  overflow: hidden;
+  border:1px solid #666;
+}
+
+.content .flexList .flexTop{
+  top:-30%
+}
+
+.content .flexList .flexBot{
+  bottom: -30%;
+  text-align: center;
+ }
+ 
