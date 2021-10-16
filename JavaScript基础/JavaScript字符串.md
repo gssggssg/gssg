@@ -121,7 +121,7 @@ string.endsWith('d') // true
  var string = 'hello world';
 
 string.slice(-3);         //rld
-string.sbstr(-3);        //rld
+string.substr(-3);        //rld
 string.substring(-3);     //hello world
 
 string.slice(3,-4);       //lo w
