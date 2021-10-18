@@ -17,40 +17,36 @@ const comments = [
 ];
 
 // Some and Every Checks
-// Array.prototype.some() // is at least one person 19?
-// const isAdult = people.some(function(person) {
-//   const currentYear = (new Date()).getFullYear();
-//   if(currentYear - person.year >= 19) {
-//     return true;
-//   }
-// });
+// 是否有人满18岁
+console.log("第一题：是否有人满18岁")
+const one = people.some((item) => {return new Date().getFullYear() - item.year >= 19 })
+console.log(one);
 
-const isAdult = people.some(person => ((new Date()).getFullYear()) - person.year >= 19);
+console.log("---------------------------------------------------------------------------------------------")
 
-console.log({isAdult});
-// Array.prototype.every() // is everyone 19?
+// is everyone 19?
+// 每个人都有19岁吗？
 
-const allAdults = people.every(person => ((new Date()).getFullYear()) - person.year >= 19);
-console.log({allAdults});
+console.log("第二题：每个人都有19岁吗？")
 
-// Array.prototype.find()
-// Find is like filter, but instead returns just the one you are looking for
-// find the comment with the ID of 823423
+const two = people.every((item) => {return new Date().getFullYear() - item.year >= 19 })
+console.log(two);
 
+console.log("---------------------------------------------------------------------------------------------")
 
-const comment = comments.find(comment => comment.id === 823423);
+console.log("第三题：从comments 找到id 是823423 的资料")
 
-console.log(comment);
+const three = comments.find((item) => {return item.id === 823423 })
+const three1 = comments.findIndex((item) => {return item.id === 823423 })
+console.log(three);
+// console.log(three1);
 
-// Array.prototype.findIndex()
-// Find the comment with this ID
-// delete the comment with the ID of 823423
-const index = comments.findIndex(comment => comment.id === 823423);
-console.log(index);
+console.log("---------------------------------------------------------------------------------------------")
 
-// comments.splice(index, 1);
+// 从comments 删除id 是823423 这笔资料(splice, slice)
+console.log("第四题：从comments 删除id 是823423 这笔资料")
 
-const newComments = [
-  ...comments.slice(0, index),
-  ...comments.slice(index + 1)
-]
+const four = comments.splice(three1,1)[0]
+
+console.log(four);
+console.log("comments===",comments)
