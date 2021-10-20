@@ -19,7 +19,7 @@ const comments = [
 // Some and Every Checks
 // 是否有人满18岁
 console.log("第一题：是否有人满18岁")
-const one = people.some((item) => {return new Date().getFullYear() - item.year >= 19 })
+const one = people.some((item) => { return new Date().getFullYear() - item.year >= 19 })
 console.log(one);
 
 console.log("---------------------------------------------------------------------------------------------")
@@ -29,15 +29,15 @@ console.log("-------------------------------------------------------------------
 
 console.log("第二题：每个人都有19岁吗？")
 
-const two = people.every((item) => {return new Date().getFullYear() - item.year >= 19 })
+const two = people.every((item) => { return new Date().getFullYear() - item.year >= 19 })
 console.log(two);
 
 console.log("---------------------------------------------------------------------------------------------")
 
 console.log("第三题：从comments 找到id 是823423 的资料")
 
-const three = comments.find((item) => {return item.id === 823423 })
-const three1 = comments.findIndex((item) => {return item.id === 823423 })
+const three = comments.find((item) => { return item.id === 823423 })
+const three1 = comments.findIndex((item) => { return item.id === 823423 })
 console.log(three);
 // console.log(three1);
 
@@ -46,7 +46,7 @@ console.log("-------------------------------------------------------------------
 // 从comments 删除id 是823423 这笔资料(splice, slice)
 console.log("第四题：从comments 删除id 是823423 这笔资料")
 
-const four = comments.splice(three1,1)[0]
+const four = comments.splice(three1, 1)[0]
 
 console.log(four);
-console.log("comments===",comments)
+console.log("comments===", comments)
