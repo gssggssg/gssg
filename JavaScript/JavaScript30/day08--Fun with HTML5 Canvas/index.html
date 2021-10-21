@@ -4,20 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <title>第八天</title>
-    <link rel="stylesheet" href="index.css" type="text/css">
+    <!-- <link rel="stylesheet" href="index.css" type="text/css"> -->
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        #canvas {
+            box-shadow: inset 0px 0px 30px 10px #999;
+        }
+    </style>
 </head>
 
 <body>
+    <canvas id="canvas" width="800" height="500"></canvas>
 
-    <canvas id="myCanvas"></canvas>
-
-    <script type="text/javascript">
-        var c = document.getElementById("myCanvas");
-        var cxt = c.getContext("2d");
-        console.log("cxt", cxt)
-        cxt.fillStyle = "#FF0000";
-        cxt.fillRect(0, 0, 150, 75);
-    </script>
     <script src="index.js"></script>
 </body>
 
