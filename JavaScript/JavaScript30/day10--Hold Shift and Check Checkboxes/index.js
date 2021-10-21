@@ -1,35 +1,35 @@
-const contentLi = document.getElementsByClassName("content")[0].getElementsByTagName("li");
+const contentLi = document.getElementsByClassName("content")[0].querySelectorAll("li");
 
-const contentInput = document.getElementsByClassName("content")[0].getElementsByTagName("input");
+const contentInput = document.getElementsByClassName("content")[0].querySelectorAll("input");
 
 const contentSpan = document.getElementsByClassName("content")[0].getElementsByTagName("span");
 
-console.log(document.onkeydown)
 //给全局绑定键盘输入按下事件
-
 document.onkeydown = function keyDown(event) {
-  event.keyCode === 16 ? contentFun(1) : null
+  event.shiftKey ? contentFun(1) : null
 };
 
 //给全局绑定键盘松开事件
-document.onkeyup = ()=>{contentFun(0)};
+document.onkeyup = () => { contentFun(0) };
 
 function contentFun(key) {
-  for (let NumI = 0; NumI < contentLi.length; NumI++) {
-    contentInput[NumI].onchange = function () {
+
+  contentInput.forEach((item, index) => {
+    item.onchange = (event) => {
+      console.log(this.shiftKey)
       if (key === 1) {
-        for (let Numj = NumI; Numj < contentLi.length; Numj++) {
-          contentInput[Numj].checked = true;
-          contentSpan[Numj].style.backgroundColor = this.checked ? "#3677ad3f" : null
-          contentSpan[Numj].style.textDecoration = this.checked ? "line-through" : null
-        }
+        contentInput.forEach((item1, index1) => {
+          if (index1 >= index) {
+            item1.checked = true;
+            contentSpan[index1].style.textDecoration = "line-through";
+            contentSpan[index1].style.backgroundColor = "#3677ad3f";
+          }
+        })
       }
-      contentSpan[NumI].style.backgroundColor = this.checked ? "#3677ad3f" : null
-      contentSpan[NumI].style.textDecoration = this.checked ? "line-through" : null
+      contentSpan[index].style.textDecoration = item.checked ? "line-through" : null;
+      contentSpan[index].style.backgroundColor = item.checked ? "#3677ad3f" : null;
     }
-  }
+  });
 }
+
 contentFun()
-
-
-
