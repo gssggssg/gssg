@@ -1,0 +1,36 @@
+*{
+  padding: 0;
+  margin:0;
+  box-sizing: inherit;
+}
+body{
+  background-color: #cde6f7;
+}
+
+.content{
+  width: 50%;
+  margin: 50px auto;
+  padding: 40px;
+  background-color: #fff;
+  overflow:hidden;
+  border-radius: 16px;
+}
+
+.slide-in {
+  opacity: 0;
+  transition: all .5s;
+}
+
+.align-right {
+  float: right;
+  margin-left: 20px;
+}
+
+.align-right.slide-in {
+  transform: translateX(30%) scale(0.95);
+}
+
+.slide-in.active {
+  opacity: 1;
+  transform: translateX(0%) scale(1);
+}
