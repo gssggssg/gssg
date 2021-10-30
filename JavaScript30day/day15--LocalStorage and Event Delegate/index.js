@@ -4,12 +4,17 @@ const opeButton = document.getElementsByTagName("button")[0];
 
 const list = document.getElementsByClassName("list")[0];
 
-let Arrlist = [];
+
 let addCon;
 
-if (sessionStorage.Arrlist) {
-  Arrlist = JSON.parse(sessionStorage.Arrlist);
-}
+// 使用 localStorage 进行本地缓存
+
+let Arrlist = JSON.parse(localStorage.getItem('items')) || [];
+// 使用 sessionStorage 进行本地缓存
+// let Arrlist = [];
+// if (sessionStorage.Arrlist) {
+//   Arrlist = JSON.parse(sessionStorage.Arrlist);
+// }
 
 for (let index = 0; index < Arrlist.length; index++) {
   addList(Arrlist[index].inputValue);
@@ -84,5 +89,9 @@ function setArrlist(type, index, value) {
   } else if (type === 2) { // 修改
     Arrlist[index] = value;
   }
+
+  // localStorage 缓存
+  localStorage.setItem('items', JSON.stringify(Arrlist));
+  // sessionStorage 缓存
   sessionStorage.Arrlist = JSON.stringify(Arrlist);
 }
