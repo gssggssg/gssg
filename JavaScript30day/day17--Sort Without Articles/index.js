@@ -18,21 +18,11 @@ const bands = [
 
 
 // 先按照从
-let data = bands.map(
-  (item) => {
-     item.replace(/^(a |an |the)/i, '');
-     return item
+let data = bands.sort(
+  (a, b) => {
+    return a.replace(/^(a |an |the)/i, '').trim() > b.replace(/^(a |an |the)/i, '').trim() ? 1 : -1;
   }
 );
-
-// // 先按照从
-// data = data.sort(
-//   (a, b) => {
-//     return a > b ? 1 : -1;
-//   }
-// );
-
-
 
 // 处理好的结果最后渲染出来
 data.map(
