@@ -24,11 +24,23 @@ let data = bands.sort(
   }
 );
 
-// 处理好的结果最后渲染出来
-data.map(
-  (item) => {
-    let newLi = document.createElement("li");
-    newLi.innerText = item;
-    myUl.appendChild(newLi);
-  }
-)
+
+
+// 使用函数，使程序模块化
+
+function displayArray(data) {
+
+  // // 利用循环多次操作 DOM ，性能需要优化
+  // data.map(
+  //   (item) => {
+  //     let newLi = document.createElement("li");
+  //     newLi.innerText = item;
+  //     myUl.appendChild(newLi);
+  //   }
+  // )
+
+  // 尽量减少 DOM 操作优化性能
+  myUl.innerHTML = '<li>' + data.join('</li><li>') + '</li>';
+}
+
+displayArray(data);
