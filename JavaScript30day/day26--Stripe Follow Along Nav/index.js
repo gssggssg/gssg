@@ -4,7 +4,6 @@ const background = document.querySelector('.dropdownBackground'); // 每一列�
 
 function mouseEnter() {
 
-  // 
   this.classList.add('trigger-enter');
   setTimeout(() => this.classList.contains('trigger-enter') && this.classList.add('trigger-enter-active'), 150);
   // background.classList.add('open');
@@ -26,12 +25,9 @@ function mouseEnter() {
 }
 
 function mouseLeave() {
-
-  // console.log('Leave!');
   this.classList.remove('trigger-enter', 'trigger-enter-active');
   background.classList.remove('open');
 }
-
 
 // 注册鼠标进过事件
 triggers.forEach(ele => ele.addEventListener('mouseenter', mouseEnter));
