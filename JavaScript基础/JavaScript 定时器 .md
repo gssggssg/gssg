@@ -11,16 +11,14 @@
 | clearTimeout | 方法可取消由 setTimeout() 方法设置的 timeout。 |
 
 `setTimeout()` 与`setInterval()`的区别是它们的执行次数不同。
-​
 
 ⚠️`setTimeout()` 只执行一次`setInterval()`是每间隔给定的时间周期性执行。
-​
+
 
 # setInterval
 ## 描述
 `setInterval()` 方法可以按照制定的周期，来重复调用一个函数或执行一个代码段。周期单位为毫秒。
 `setInterval()` 方法如果没有`被 clearInterval()` 方法关闭或页面关闭，那么会一直调用下去。
-怎么用呢？
 setInterval的参数有多个。
 第一种，如果第一个参数为代码段，那么`setInterval()`方法可以选填。
 第二种，如果第一个参数为函数，那么`setInterval()`方法可以有多个参数。
@@ -30,11 +28,11 @@ let timerId = setInterval(func|code, delay, arg1, arg2, ...)
 ## 参数
 | 参数 | 必/选填 | 描述 |
 | --- | --- | --- |
-| func | code | 必填 | 调用的函数后要执行的函数或代码字符串 |
+| func \| code | 必填 | 调用的函数后要执行的函数或代码字符串 |
 | delay | 必填 | 执行代码前所需的时间，单位为毫秒，可以不填，默认值是 0 |
 | arg1，arg2… | 选填 | 要传入被执行函数（或代码字符串）的参数列表（IE9 以下不支持） |
 
-⚠️参数`func|code` 一般传入的都是函数。由于某些历史原因，支持传入代码字符串，但是不建议这样做。
+⚠️ 参数`func|code` 一般传入的都是函数。由于某些历史原因，支持传入代码字符串，但是不建议这样做。
 ## 返回值
 返回值`timeoutID`是一个正整数，表示定时器的编号。这个值可以传递给`clearTimeout()`来取消该定时器。
 ## 用法
@@ -72,12 +70,12 @@ let timerId = setTimeout(func|code, delay, arg1, arg2, ...)
 
 | 参数 | 必/选填 | 描述 |
 | --- | --- | --- |
-| func | code | 必填 | 调用的函数后要执行的函数或代码字符串 |
+| func \| code | 必填 | 调用的函数后要执行的函数或代码字符串 |
 | delay | 必填 | 执行代码前所需的时间，单位为毫秒，可以不填，默认值是 0 |
 | arg1，arg2… | 选填 | 要传入被执行函数（或代码字符串）的参数列表（IE9 以下不支持） |
 
 ⚠️参数`func|code` 一般传入的都是函数。由于某些历史原因，支持传入代码字符串，但是不建议这样做。
-​
+
 
 ## 用法:
 `setTimeout()`用法和 `setInterval()`是一样的，
@@ -103,12 +101,11 @@ let timerId = setTimeout(func|code, delay, arg1, arg2, ...)
 
 </script>
 ```
-​
+
 
 # 取消timer
 clearInterval() 方法可取消由 setInterval() 设置的 timer。
 clearTimeout() 方法可取消由 setTimeout() 设置的 timer。
-​
 
 使用方法很简单,只有一个参数，该参数timeoutID为您要取消定时器的标识符。
 该ID由相应的setTimeout()或clearTimeout()调用返回.
