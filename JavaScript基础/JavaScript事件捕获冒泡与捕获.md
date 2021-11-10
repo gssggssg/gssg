@@ -80,8 +80,6 @@ DOM事件触发时（被触发DOM事件的这个元素被叫作事件源），�
 > 现代浏览器都是从 window 对象开始捕获事件的，冒泡最后一站也是 window 对象。而 IE8 及以下浏览器，只会冒泡到 document 对象。
 > 事件冒泡：是由元素的 HTML 结构决定，而不是由元素在页面中的位置决定，所以即便使用定位或浮动使元素脱离父元素的范围，单击元素时，其依然存在冒泡现象。
 
-​
-
 现在我们知道了事件流的三个阶段后，那我们可以利用这个特性做什么呢？
 # 事件委托
 设想这样一个场景，当你有一堆的`<li>`标签在一个`<ul>`标签下，需要给所有的`<li>`标签绑定`onclick`事件，这个问题我们可以用循环解决，但还有没有更简便的方式呢？
@@ -146,6 +144,7 @@ element.addEventListener(eventType, function, useCapture);
 - false- 表示事件在冒泡阶段执行执行
 
 看下面例子
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -182,14 +181,14 @@ element.addEventListener(eventType, function, useCapture);
 ```
 ⚠️  _这是一般的事件委托方法，但是这种写法有问题，就是当_`_<li>_`_中还有子元素时，点击这个子元素就不会进行触发事件。这个问题是一个坑。_
 
-事件冒泡有时候确实很有用，但是有时候也讨人烦，当你不需要它的时候能不能取消掉呢？
+事件冒泡有时候确实很有用，但是有时候也讨人烦，当你不需要它的时候能不能取消掉呢？  
 # 禁止事件冒泡与捕获
 _⚠️  并不是所有事件都会冒泡，比如focus，blur，change，submit，reset，select等。_
 
-禁止冒泡和捕获可以用到方法`stopPropagation()`。
-stopPropagation()起到阻止捕获和冒泡阶段中当前事件的进一步传播。
-这是阻止事件的冒泡方法，进行冒泡，但是默认事件任然会执行，当你调用了这个方法后。
-如果点击一个`a`标签，这个`a`标签会进行跳转。
+禁止冒泡和捕获可以用到方法`stopPropagation()`。  
+stopPropagation()起到阻止捕获和冒泡阶段中当前事件的进一步传播。  
+这是阻止事件的冒泡方法，进行冒泡，但是默认事件任然会执行，当你调用了这个方法后。  
+如果点击一个`a`标签，这个`a`标签会进行跳转。  
 
 使用起来也很简单，没有返回值也没有参数。
 ```javascript
@@ -222,6 +221,7 @@ event.stopPropagation();
     </script>
 ```
 当事件冒泡到`box2`时调用了在函数`sayBox2`，调用了`e.stopPropagation();` 就停止冒泡了。
+
 # 参考文献
-MDN中文版 [https://developer.mozilla.org/zh-CN/](https://developer.mozilla.org/zh-CN/)
+MDN中文版 [https://developer.mozilla.org/zh-CN/](https://developer.mozilla.org/zh-CN/)  
 知乎 [https://zhuanlan.zhihu.com/p/26536815](https://zhuanlan.zhihu.com/p/26536815)
