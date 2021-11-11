@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript 常用方法</title>
+  <link rel="stylesheet" href="index.css" type="text/css">
+</head>
+
+<body>
+  <nav class="nav">
+    <ul>
+      <li><a href="#Array">数组</a></li>
+      <li><a href="#Date">时间</a></li>
+      <li><a href="#Math">数学</a></li>
+      <li><a href="#String">字符串</a></li>
+    </ul>
+  </nav>
+
+  <div class="content">
+
+
+    <div class="module" id="Array">
+      <h3>Array 常用方法</h3>
+      <ul class="lists">
+        <li>1. pop : 删除数组最后一位元素 </li>
+        <li>2. shift : 删除数组第一位元素 </li>
+        <li>3. push : 往数组的末尾新增一个或多个元素 </li>
+        <li>4. unshift : 往数组的开头新增一个或多个元素 </li>
+        <li>5. reverse : 把数组元素顺序逆转 </li>
+        <li>6. sort : 数组排序 </li>
+        <li>7. splice : 给数组添加或者删除元素 </li>
+        <li>8. forEach : 遍历数组 </li>
+        <li>9. filter : 从数组中找出所有符合指定条件的元素 </li>
+        <li>10. every : 数组中是否每个元素都满足指定的条件 </li>
+        <li>11。 some : 数组中是否有元素满足指定的条件 </li>
+        <li>12. map : 将数组映射成另一个数组 </li>
+        <li>13. reduce : 将数组合成一个值 </li>
+        <li>14. isArray : 是否是数组 </li>
+        <li>15. concat : 合并数组或合并数组的值 </li>
+        <li>16. join : 合并数组所有元素拼接成字符串 </li>
+        <li>17. slice : 选择数组中的一部分元素 </li>
+        <li>18. indexOf : 查找数组中指定元素的下标 </li>
+        <li>19. lastIndexOf : 查找数组中指定元素的下标。查找方向为从后往前 </li>
+      </ul>
+      <ul class="example">
+      </ul>
+    </div>
+
+
+    <div class="module" id="Date">
+      <h3>Date 常用方法</h3>
+      <ul class="lists">
+        <li>1. new Date() : 获取时间</li>
+        <li>2. get : 获取年月日时分秒的单独一个</li>
+        <li>3. set : 设置数值，跟 get 用法类似</li>
+        <li>4. getTime : 时间转毫秒数 </li>
+      </ul>
+      <ul class="example">
+      </ul>
+    </div>
+
+
+    <div class="module" id="Math">
+      <h3>Math 常用方法</h3>
+      <ul class="lists">
+        <li>1. Math.max() : 最大值 </li>
+        <li>2. Math.min() : 最小值</li>
+        <li>3. Math.ceil() : 向上取整</li>
+        <li>4. Math.floor() : 向下取整 </li>
+        <li>5. Math.round() : 四舍五入</li>
+        <li>6. Math.random() : 获取一个属于[0,1)的随机数 </li>
+        <li>7. Math.abs(num) : 是返回num的绝对值</li>
+        <li>8. toFixed() : 将数值格式化为字符串 </li>
+        <li>9. parseInt() : 返回整型的数字 </li>
+        <li>10. parseFloat() : 将字符串转为数字，返回浮点型的数字</li>
+        <li>11. Number() : 函数把对象转换为数字</li>
+      </ul>
+      <ul class="example">
+      </ul>
+    </div>
+
+
+    <div class="module" id="String">
+      <h3>String 常用方法</h3>
+      <ul class="lists">
+        <li>1. typeof : 类型判断 </li>
+        <li>2. indeOf : 查询字符串中是否包含指定子字符串 </li>
+        <li>3. length : 返回数组长度 </li>
+        <li>4. charAt(下标) : 取字符串中指定下标的字符 </li>
+        <li>5. substring(开始下标, 结束下标) : 取字符串中指定范围的子字符 </li>
+        <li>6. substr(开始下标, 长度) : 取字符串中指定范围的子字符 </li>
+        <li>7. replace : 将字符串中的部分内容替换 </li>
+        <li>8. toUpperCase/toLowerCase : 将字符串变成大/小写 </li>
+        <li>9. trim : 去除字符串两头的空格(包括 space, Tab 等) </li>
+        <li>10. split : 将字符串分割成数组 </li>
+      </ul>
+      <ul class="example">
+      </ul>
+    </div>
+
+
+  </div>
+
+  <!-- 封装了一些方法  -->
+  <script type="text/javascript" src="./index.js"></script>
+  <!--  数组的常用方法  -->
+  <script type="text/javascript" src="./commonMethod_Array.js"></script>
+  <!--  时间对象的常用方法  -->
+  <script type="text/javascript" src="./commonMethod_Date.js"></script>
+  <!--  数学计算对象常用方法   -->
+  <script type="text/javascript" src="./commonMethod_Math.js"></script>
+  <!--  字符串的常用方法  -->
+  <script type="text/javascript" src="./commonMethod_String.js"></script>
+</body>
+
+</html>
