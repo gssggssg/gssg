@@ -23,48 +23,78 @@ lastIndexOf : 查找数组中指定元素的下标。查找方向为从后往前
 
 
 // 封装了一些方法
-
 function arrayMethod(...parameter) {
-  const { id, title, arr, initialValue, handlingMethod } = parameter[0];
-  const liArr = exampleUl[0].getElementsByTagName('li');
-  const index = liArr.length;
-  const result = eval(handlingMethod);
+  let { id, title, arr, initialValue, handlingMethod } = parameter[0];
+  let liArr = exampleUl[0].getElementsByTagName('li');
+  let index = liArr.length;
   addLi(id, title, initialValue, handlingMethod, 0);
-  butFn(index, arr, initialValue, result, title, 0);
+  butFn(index,id, 0);
 }
 
-const popArray = {
+let popArray = {
   id: 'popArray',
   title: '1. pop : 删除数组最后一位元素',
   arr: [1, 2, 3],
-  initialValue: `arr = [[1, 2, 3]`,
+  initialValue: `arr = [1, 2, 3]`,
   handlingMethod: `arr.pop();`,
 }
 
-const shiftArray = {
+let shiftArray = {
   id: 'shiftArray',
   title: '2. shift : 删除数组第一位元素',
   arr: [1, 2, 3],
-  initialValue: `arr = [[1, 2, 3]`,
+  initialValue: `arr = [1, 2, 3]`,
   handlingMethod: `arr.shift();`,
 }
 
-const pushArray = {
+let pushArray = {
   id: 'pushArray',
   title: '3. push : 往数组的末尾新增一个或多个元素',
   arr: [1, 2, 3],
-  initialValue: `arr = [[1, 2, 3]`,
+  initialValue: `arr = [1, 2, 3]`,
   handlingMethod: `arr.push(4);`,
+}
+
+let unshiftArray = {
+  id: 'unshiftArray',
+  title: '4. unshift : 往数组的开头新增一个或多个元素',
+  arr: [1, 2, 3],
+  initialValue: `arr = [1, 2, 3]`,
+  handlingMethod: `arr.unshift(-1,0);`,
+}
+
+let reverseArray = {
+  id: 'reverseArray',
+  title: '5. reverse : 把数组元素顺序逆转',
+  arr: [1, 2, 3],
+  initialValue: `arr = [1, 2, 3]`,
+  handlingMethod: `arr.reverse();`,
+}
+
+let sortArray = {
+  id: 'sortArray',
+  title: '6. sort : 数组排序',
+  arr: [1, 2, 3],
+  initialValue: `arr = [1, 2, 3]`,
+  handlingMethod:
+    `arr.sort(
+  (a,b)=>{
+    return a < b ? -1 : 1 ; //  从小到大排
+  }
+);`,
 }
 
 
 const lis = lists[0].querySelectorAll('li');
 
-const commonMethodArray = [popArray, shiftArray, pushArray]
+let commonMethodArray = [popArray, shiftArray, pushArray, unshiftArray, reverseArray, sortArray];
+
+const commonMethodArrayTheBackup = [...commonMethodArray];
+
 lis.forEach(
   (item, index) => {
-    if(commonMethodArray.length <= index){
-      return ;
+    if (commonMethodArray.length <= index) {
+      return;
     }
     item.innerHTML = `<a href="#${commonMethodArray[index].id}">${item.innerText}</a>`
   }

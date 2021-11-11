@@ -26,7 +26,7 @@ body{
   width: 90%;
   padding: 3%;
   margin: 4% auto;
-  background-color: rgba(238, 238, 238, 0.81);
+  background-color: rgba(238, 238, 238, 0.88);
   border-radius: 8px;
   box-shadow: 4px 4px  12px 2px #777;
 }
@@ -46,19 +46,25 @@ body{
 .content .module .lists li{
   height: 30px;
   line-height: 30px;
-  font-size: 12px;
-  width: 32%;
+  font-size: 16px;
+  width: 44%;
 }
 
 .content .module .lists li a{
-  color: #777;
-  border-bottom: 1px solid #777;
+  color: #5698c3;
+  border-bottom: 1px solid #5698c3;
+}
+
+.content .module .lists li a:hover{
+  background-color: #5698c3;
+  color: #fff;
 }
 
 .content .module .example li{
   padding: 10px;
   margin: 20px auto;
   box-shadow: 2px 2px 10px 2px #999;
+  border-radius: 8px;
   overflow: hidden;
   position: relative;
 }
@@ -78,16 +84,33 @@ body{
   right: 50px;
   top: 25px;
   cursor: pointer;
-  color: #085497;
+  color: #5698c3;
 }
 
 .content .module .example code,
-.content .module .example pre{
+.content .module .example pre,
+.content .module .example textarea{
+  width: calc(100% - 28px);
+  overflow: hidden;
   display: block;
-  padding: 20px;
+  padding: 14px;
   margin: 10px 0;
+  font-size: 16px;
   color: rgba(199, 199, 199);
   background-color: rgba(17, 29, 31);
+  outline: none;
+  border: none;
+}
+
+.content .module .example pre{
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+.content .module .example textarea:focus{
+  outline: none;
+  border: none;
 }
 
 /* 按钮组 */
@@ -101,14 +124,14 @@ body{
   line-height: 30px;
   margin: 10px 30px;
   border: none;
-  box-shadow: 2px 2px 8px 1px #aaa;
+  box-shadow: 1px 1px 4px 1px #aaa;
 }
 
 .content .module .example .buttons button:focus,
 .content .module .example .buttons button:hover{
   outline: none;
   border: none;
-  box-shadow: 0px 0px 8px 1px #eee;
+  box-shadow: 0px 0px 4px 1px #5698c3;
 }
 
 /* 结果 */
@@ -116,6 +139,7 @@ body{
 /* 导航栏 */
 .nav{
   position: fixed;
+  z-index: 999;
   top: 10px;
   width: 100%;
 }
@@ -136,7 +160,8 @@ body{
   line-height: 50px;
   text-align: center;
   border-radius: 8px;
-  color: #777;
+  color: #fff;
+  background-color: #5697c31f;
 }
 
 .nav ul li a{
@@ -145,9 +170,10 @@ body{
 
 .nav ul li a:hover{
   transition: all 0.6s ease-in-out;
-  box-shadow: 0 0 6px 1px #777;
-  color: #fff;
+  box-shadow: 0 0 6px 1px #085497;
+
   text-shadow: 0 0 20px #085497;
+  background-color: #5697c35e;
 }
 /* 
 #Array{
