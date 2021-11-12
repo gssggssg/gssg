@@ -145,7 +145,6 @@ exampleUl.forEach((item) => {
   })
 });
 
-
 // 让textarea高度随着内容高度而自适应
 function setHeight(arrayId) {
   const arrayIdLabel = document.getElementById(arrayId);

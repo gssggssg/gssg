@@ -55,4 +55,3 @@ operationMetho[1].initData = [
   setDate,
   getTimeDate,
 ];
-
