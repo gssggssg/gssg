@@ -1,5 +1,27 @@
 const lists = document.querySelectorAll(".lists");
 const exampleUl = document.querySelectorAll(".example");
+const operationMetho = [
+  {
+    type: 'array',
+    data: [],
+    initData: [],
+  },
+  {
+    type: 'date',
+    data: [],
+    initData: [],
+  },
+  {
+    type: 'math',
+    data: [],
+    initData: [],
+  },
+  {
+    type: 'string',
+    data: [],
+    initData: [],
+  },
+];
 
 /*
     addLi 添加li到页面ul中的方法
@@ -49,10 +71,11 @@ ${handlingMethod}</textarea>
     2. id  // id
     3. dataTypeUl  // 数据类型Ul
 */
-function butFn(index, id, dataTypeUl) {
-  const buttons = exampleUl[dataTypeUl].getElementsByClassName('buttons')[index].getElementsByTagName('button');
-  const currentLi = exampleUl[dataTypeUl].getElementsByTagName('li')[index];
-
+function butFn(index, id, dataTypeNUm) {
+  // 按钮组
+  const buttons = exampleUl[dataTypeNUm].getElementsByClassName('buttons')[index].getElementsByTagName('button');
+  // 当前li
+  const currentLi = exampleUl[dataTypeNUm].getElementsByTagName('li')[index];
   // 返回值 <code>
   const currentResult = currentLi.getElementsByClassName('result')[0].getElementsByTagName('textarea')[0];
   // 操作后的初始值 <code>
@@ -60,11 +83,11 @@ function butFn(index, id, dataTypeUl) {
 
   buttons[0].onclick = () => {
     try {
-      const { initialValue, handlingMethod, title } = commonMethodArray[index];
+      const { initialValue, handlingMethod, title } = operationMetho[dataTypeNUm].data[index];
       const resultValue = eval(initialValue);
       const result = eval(handlingMethod);
       currentResult.value = result;
-      currentValue.innerText = `[${resultValue}]`;
+      currentValue.innerText = `${resultValue}`;
       // console.log(`第${index + 1}个-->${title} :`, result);
     }
     catch (e) {
@@ -74,9 +97,9 @@ function butFn(index, id, dataTypeUl) {
 
   buttons[1].onclick = () => {
     try {
-      const { initialValue, handlingMethod } = commonMethodArrayTheBackup[index];
-      setValue(id, `initialValue`, initialValue);
-      setValue(id, `handlingMethod`, handlingMethod);
+      const { initialValue, handlingMethod } = operationMetho[dataTypeNUm].initData[index];
+      setValue(id, `initialValue`, initialValue, dataTypeNUm);
+      setValue(id, `handlingMethod`, handlingMethod, dataTypeNUm);
     }
     catch (e) {
       alert('重置 ❌ ！！！' + e);
@@ -109,10 +132,17 @@ exampleUl.forEach((item) => {
 
   item.addEventListener('input', function (e) {
     if (e.target.nodeName.toLowerCase() === 'textarea') {
-      setValue(e.target.parentNode.id, e.target.name, e.target.value);
+      let nam = 0;
+      operationMetho.filter(
+        (item, index) => {
+          if (item.type === e.target?.parentNode.parentNode.parentNode?.id.toLowerCase()) {
+            return nam = index;
+          }
+        }
+      )
+      setValue(e.target.parentNode.id, e.target.name, e.target.value, nam);
     }
   })
-  
 });
 
 
@@ -129,15 +159,15 @@ function setHeight(arrayId) {
 }
 
 // 更改 textarea 的值
-function setValue(id, key, value) {
-
+function setValue(id, key, value, dataTypeUl) {
+  let data = [];
+  data = operationMetho[dataTypeUl].data;
   let num = 0;
-  for (let index = 0; index < commonMethodArray.length; index++) {
-    if (commonMethodArray[index].id === id) {
+  for (let index = 0; index < data.length; index++) {
+    if (data[index].id === id) {
       num = index;
     }
   }
-
   const newid = document.getElementById(id);
   const textareas = newid.querySelectorAll('textarea');
   try {
@@ -146,11 +176,45 @@ function setValue(id, key, value) {
         textareas[index].value = value;
       }
     }
-
-    commonMethodArray[num][key] = value;
+    data[num][key] = value; // 更改 operationMetho[num].data，数据 
     setHeight(id);
   }
   catch (e) {
     alert('编辑 ❌ ！！！' + e);
   }
+}
+
+// 封装了渲染的方法
+function typeMethod(...parameter) {
+  try {
+    let { id, title, initialValue, handlingMethod } = parameter[0];
+    let liArr = exampleUl[parameter[1]].getElementsByTagName('li');
+    let index = liArr.length;
+    addLi(id, title, initialValue, handlingMethod, parameter[1]);
+    butFn(index, id, parameter[1]);
+  }
+  catch (e) {
+    alert('渲染 ❌ ！！！' + e);
+  }
+}
+
+/* 
+  渲染所有内容到页面上
+*/
+function play() {
+  console.time(name);
+  operationMetho.forEach(
+    (item, index) => {
+      item.data = JSON.parse(JSON.stringify(item.initData)); // 深赋值，为了重置数据
+      let listsHtmlData = ``; // 设置小标题组 Html 代码为空
+      item.data.forEach(
+        (item1) => {
+          typeMethod({ ...item1 }, index);
+          listsHtmlData += `<li><a href="#${item1.id}">${item1.title}</a></li>`;
+        }
+      )
+      lists[index].innerHTML = listsHtmlData;
+    }
+  )
+  console.timeEnd(name);
 }

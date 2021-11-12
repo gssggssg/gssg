@@ -21,20 +21,6 @@ indexOf : 查找数组中指定元素的下标
 lastIndexOf : 查找数组中指定元素的下标。查找方向为从后往前
 */
 
-// 封装了一些方法
-function arrayMethod(...parameter) {
-  try {
-    let { id, title, initialValue, handlingMethod } = parameter[0];
-    let liArr = exampleUl[0].getElementsByTagName('li');
-    let index = liArr.length;
-    addLi(id, title, initialValue, handlingMethod, 0);
-    butFn(index, id, 0);
-  }
-  catch (e) {
-    alert('❌ ！！！' + e);
-  }
-}
-
 const popArray = {
   id: 'popArray',
   title: '1. pop : 删除数组最后一位元素',
@@ -236,9 +222,7 @@ const lastIndexOfArray = {
   handlingMethod: `arr.lastIndexOf(2);`,
 }
 
-const lis = lists[0].querySelectorAll('li');
-
-const commonMethodArrayTheBackup = [
+operationMetho[0].initData = [
   popArray,
   shiftArray,
   pushArray,
@@ -260,16 +244,3 @@ const commonMethodArrayTheBackup = [
   lastIndexOfArray,
 ];
 
-let commonMethodArray = JSON.parse(JSON.stringify(commonMethodArrayTheBackup))
-let listsHtml = ``;
-/*
-  渲染数组中的数据到页面上
-*/
-commonMethodArray.forEach(
-  (item) => {
-    arrayMethod({ ...item });
-    listsHtml += `<li><a href="#${item.id}">${item.title}</a></li>`;
-  }
-)
-
-lists[0].innerHTML = listsHtml;
