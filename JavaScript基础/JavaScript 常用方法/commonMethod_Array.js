@@ -24,57 +24,56 @@ lastIndexOf : 查找数组中指定元素的下标。查找方向为从后往前
 
 // 封装了一些方法
 function arrayMethod(...parameter) {
-  let { id, title, arr, initialValue, handlingMethod } = parameter[0];
-  let liArr = exampleUl[0].getElementsByTagName('li');
-  let index = liArr.length;
-  addLi(id, title, initialValue, handlingMethod, 0);
-  butFn(index,id, 0);
+  try {
+    let { id, title, initialValue, handlingMethod } = parameter[0];
+    let liArr = exampleUl[0].getElementsByTagName('li');
+    let index = liArr.length;
+    addLi(id, title, initialValue, handlingMethod, 0);
+    butFn(index, id, 0);
+  }
+  catch (e) {
+    alert('❌ ！！！' + e);
+  }
 }
 
-let popArray = {
+const popArray = {
   id: 'popArray',
   title: '1. pop : 删除数组最后一位元素',
-  arr: [1, 2, 3],
   initialValue: `arr = [1, 2, 3]`,
   handlingMethod: `arr.pop();`,
 }
 
-let shiftArray = {
+const shiftArray = {
   id: 'shiftArray',
   title: '2. shift : 删除数组第一位元素',
-  arr: [1, 2, 3],
   initialValue: `arr = [1, 2, 3]`,
   handlingMethod: `arr.shift();`,
 }
 
-let pushArray = {
+const pushArray = {
   id: 'pushArray',
   title: '3. push : 往数组的末尾新增一个或多个元素',
-  arr: [1, 2, 3],
   initialValue: `arr = [1, 2, 3]`,
   handlingMethod: `arr.push(4);`,
 }
 
-let unshiftArray = {
+const unshiftArray = {
   id: 'unshiftArray',
   title: '4. unshift : 往数组的开头新增一个或多个元素',
-  arr: [1, 2, 3],
   initialValue: `arr = [1, 2, 3]`,
   handlingMethod: `arr.unshift(-1,0);`,
 }
 
-let reverseArray = {
+const reverseArray = {
   id: 'reverseArray',
   title: '5. reverse : 把数组元素顺序逆转',
-  arr: [1, 2, 3],
   initialValue: `arr = [1, 2, 3]`,
   handlingMethod: `arr.reverse();`,
 }
 
-let sortArray = {
+const sortArray = {
   id: 'sortArray',
   title: '6. sort : 数组排序',
-  arr: [1, 2, 3],
   initialValue: `arr = [1, 2, 3]`,
   handlingMethod:
     `arr.sort(
@@ -84,12 +83,11 @@ let sortArray = {
 );`,
 }
 
-
 const lis = lists[0].querySelectorAll('li');
 
-let commonMethodArray = [popArray, shiftArray, pushArray, unshiftArray, reverseArray, sortArray];
+const commonMethodArrayTheBackup = [popArray, shiftArray, pushArray, unshiftArray, reverseArray, sortArray];
 
-const commonMethodArrayTheBackup = [...commonMethodArray];
+let commonMethodArray = JSON.parse(JSON.stringify(commonMethodArrayTheBackup))
 
 lis.forEach(
   (item, index) => {

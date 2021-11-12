@@ -12,7 +12,7 @@ const exampleUl = document.querySelectorAll(".example");
 */
 function addLi(id, title, initialValue, handlingMethod, dataTypeUl) {
   // 1. 创建一个li 
-  let newLi = document.createElement("li");
+  const newLi = document.createElement("li");
   newLi.id = id;
   newLi.innerHTML =
     `
@@ -59,21 +59,34 @@ function butFn(index, id, dataTypeUl) {
   const currentValue = currentLi.getElementsByClassName('changevalue')[0].getElementsByTagName('textarea')[0];
 
   buttons[0].onclick = () => {
-    let { initialValue, handlingMethod, title } = commonMethodArray[index];
-    let resultValue = eval(initialValue);
-    let result = eval(handlingMethod);
-    currentResult.value = result;
-    currentValue.innerText = `[${resultValue}]`;
-    // console.log(`第${index + 1}个-->${title} :`, result);
+    try {
+      const { initialValue, handlingMethod, title } = commonMethodArray[index];
+      const resultValue = eval(initialValue);
+      const result = eval(handlingMethod);
+      currentResult.value = result;
+      currentValue.innerText = `[${resultValue}]`;
+      // console.log(`第${index + 1}个-->${title} :`, result);
+    }
+    catch (e) {
+      alert('运行 ❌ ！！！' + e);
+    }
   }
 
   buttons[1].onclick = () => {
-    let { initialValue } = commonMethodArrayTheBackup[index];
-    setValue(id, `initialValue`, initialValue);
+    try {
+      const { initialValue, handlingMethod } = commonMethodArrayTheBackup[index];
+      setValue(id, `initialValue`, initialValue);
+      setValue(id, `handlingMethod`, handlingMethod);
+    }
+    catch (e) {
+      alert('重置 ❌ ！！！' + e);
+    }
   }
 }
 
-
+/*
+  添加多个事件
+*/
 exampleUl.forEach((item) => {
   // 点击展开与收起操作
   item.addEventListener('click', function (e) {
@@ -99,7 +112,7 @@ exampleUl.forEach((item) => {
       setValue(e.target.parentNode.id, e.target.name, e.target.value);
     }
   })
-
+  
 });
 
 
@@ -117,13 +130,27 @@ function setHeight(arrayId) {
 
 // 更改 textarea 的值
 function setValue(id, key, value) {
-  setHeight(id);
+
   let num = 0;
   for (let index = 0; index < commonMethodArray.length; index++) {
     if (commonMethodArray[index].id === id) {
       num = index;
     }
   }
-  console.log(id, key, value)
-  commonMethodArray[num][key] = value;
+
+  const newid = document.getElementById(id);
+  const textareas = newid.querySelectorAll('textarea');
+  try {
+    for (let index = 0; index < textareas.length; index++) {
+      if (textareas[index].name === key) {
+        textareas[index].value = value;
+      }
+    }
+
+    commonMethodArray[num][key] = value;
+    setHeight(id);
+  }
+  catch (e) {
+    alert('编辑 ❌ ！！！' + e);
+  }
 }
