@@ -81,6 +81,7 @@ function butFn(index, id, dataTypeNUm) {
   // 操作后的初始值 <code>
   const currentValue = currentLi.getElementsByClassName('changevalue')[0].getElementsByTagName('textarea')[0];
 
+  // 运行按钮
   buttons[0].onclick = () => {
     try {
       const { initialValue, handlingMethod, title } = operationMetho[dataTypeNUm].data[index];
@@ -95,6 +96,7 @@ function butFn(index, id, dataTypeNUm) {
     }
   }
 
+  // 重置按钮
   buttons[1].onclick = () => {
     try {
       const { initialValue, handlingMethod } = operationMetho[dataTypeNUm].initData[index];
