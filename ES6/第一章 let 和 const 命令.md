@@ -6,6 +6,7 @@
 
 这一章原文链接 [let 和 const 命令 ](https://es6.ruanyifeng.com/#docs/let)。
 
+
 # let 
 ​
 `let` 是用来声明一个**变量**。
@@ -62,7 +63,7 @@ const sample; // 直接报错，const 声明的时候必须对其赋值
 
 # let 与 const
 
-引入`let`后，已经可以代替`var`了，在`let`与`const`中能用`const`就尽量用`const`。
+引入`let`后，已经可以代替`var`了，在`let`与`const`之中能用`const`就尽量用`const`。
 ​
 ## let 与 const 不同处
 ​
@@ -152,7 +153,6 @@ if (true) {
 作用域并不是ES6的新东西，但是在ES5只有全局作用域和函数作用域，为了解决块级作用域，**ES6可以使用**`**let**`**与**`**const**`**声明一个块级作用域的变量。**​
 `var` 声明的变量具有变量提升特性，所以没有块的概念，可以跨块访问，但不能跨函数。
 **外层作用域无法读取内层作用域的变量。**
-**​**
 
 ```javascript
 { // 块作用域
@@ -170,7 +170,6 @@ console.log(sampleConst); // 报错  not defined
 ​
 **ES6 允许块级作用域的任意嵌套。**
 同一个作用域不可使用`let`或`const`声明同一个变量，**内层作用域可以定义外层作用域的同名变量。**
-**​**
 
 ```javascript
 {
@@ -188,7 +187,7 @@ console.log(sampleConst); // 报错  not defined
 ​
 **ES5 规定，函数只能在顶层作用域和函数作用域之中声明，不能在块级作用域声明。**
 **ES6 规定，块级作用域之中，函数声明语句的行为类似于**`**let**`**，在块级作用域之外不可引用。**
-**​**
+
 
 ```javascript
 /* 
@@ -226,7 +225,6 @@ if (false) {
 console.log(sampleFn); // 正常输出 undefined
 sampleFn(); // 报错为sampleFdddn is not defined 
 ```
-**​**
 
 **为什么块级作用域之外也可以引用函数呢？**
 如果改变了块级作用域内声明的函数的处理规则，显然会对老代码产生很大影响。为了减轻因此产生的不兼容问题，ES6 在附录 B里面规定，**浏览器的实现可以不遵守上面的规定**(指函数声明语句的行为)，有自己的行为方式。
@@ -239,6 +237,21 @@ sampleFn(); // 报错为sampleFdddn is not defined
 ​
 我们应该避免在块级作用域内声明函数。如果确实需要，也应该写成函数表达式，而不是函数声明语句。
 ​
+```javascript
+// 函数声明语句，不要在块作用域中使用，因为会有变量提升
+{
+  function sampleFn() {
+    console.log("Hello World");
+  }
+}
+
+// 函数表达式，在块作用域中，函数不会有变量提升
+{ 
+  const sampleFn = function () {
+    console.log("Hello World");
+  }
+}
+```
 
 # 顶层对象
 ​
