@@ -1,3 +1,8 @@
+# git
+git是一个开源的**分布式**版本控制系统 (VCS)，可以有效、高速地处理从很小到非常大的项目版本管理。
+用于跟踪源代码更改。它允许多个开发人员一起进行非线性开发。
+
+
 # git安装
 Linux、macOS、Windows都可以在官网下载对应平台安装包，
 下载地址：[https://git-scm.com/downloads](https://git-scm.com/downloads)
@@ -177,6 +182,7 @@ git push -u origin 分支名
 | git log | 查看历史提交记录 |
 
 # 问题
+实际使用git的过程中，会出先各种各样问题，本文记录下作者出现问题较多的一些问题，后续会更新。
 
 ## 权限被拒绝，请重试
 ___Permission denied, please try again.___
