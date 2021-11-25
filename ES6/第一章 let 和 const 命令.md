@@ -20,7 +20,6 @@
 - 不可重复声明
 - 只在`let`命令所在代码块有效
 
-​
 ```javascript
 let sample = 1;
 sample = 2;
