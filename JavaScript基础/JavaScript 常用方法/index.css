@@ -16,6 +16,46 @@ body{
   background: url(./bg.png) 100% 100%;
 }
 
+/* 导航栏 */
+.nav{
+  position: fixed;
+  z-index: 999;
+  top: 10px;
+  width: 100%;
+}
+
+.nav ul {
+  display: flex;
+  justify-content: space-evenly;
+  width: 90%;
+  margin: auto;
+  /* background-color: #999; */
+}
+
+.nav ul li ,
+.nav ul li a{
+  display: block;
+  width: 20%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #5697c31f;
+}
+
+.nav ul li a{
+  width: 100%;
+}
+
+.nav ul li a:hover{
+  transition: all 0.6s ease-in-out;
+  box-shadow: 0 0 6px 1px #085497;
+
+  text-shadow: 0 0 20px #085497;
+  background-color: #5697c35e;
+}
+
 .content{
   margin: 100px auto 0;
   width: 90%;
@@ -140,45 +180,6 @@ body{
 
 /* 结果 */
 
-/* 导航栏 */
-.nav{
-  position: fixed;
-  z-index: 999;
-  top: 10px;
-  width: 100%;
-}
-
-.nav ul {
-  display: flex;
-  justify-content: space-evenly;
-  width: 90%;
-  margin: auto;
-  /* background-color: #999; */
-}
-
-.nav ul li ,
-.nav ul li a{
-  display: block;
-  width: 20%;
-  height: 50px;
-  line-height: 50px;
-  text-align: center;
-  border-radius: 8px;
-  color: #fff;
-  background-color: #5697c31f;
-}
-
-.nav ul li a{
-  width: 100%;
-}
-
-.nav ul li a:hover{
-  transition: all 0.6s ease-in-out;
-  box-shadow: 0 0 6px 1px #085497;
-
-  text-shadow: 0 0 20px #085497;
-  background-color: #5697c35e;
-}
 /* 
 #Array{
 
