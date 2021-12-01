@@ -1,12 +1,11 @@
 js的一些小知识
 
-
 getElementById
 getElementsByTagName
 
 data的使用及方法
 
-data.getHours() //获取 时
+data.getHours()  //获取 时
 data.getMinutes()  //获取 分
 data.getSeconds()  //获取 秒
 
@@ -30,8 +29,6 @@ document.documentElement是专门获取html这个标签的
 document.body是专门获取body这个标签的。
 ```
 
-
 js事件
-
 
 oninput //当input内的value发生改变时，在value改变时实时触发，但是通过js改变value时不会触发
