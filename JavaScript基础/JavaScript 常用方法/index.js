@@ -58,8 +58,7 @@ ${handlingMethod}</textarea>
     操作后的初始值 ：<textarea name="resultsValue" readonly="readonly">
     </textarea>
     <pre></pre>
-  </div>
-    `;
+  </div>`;
   exampleUl[dataTypeUl].appendChild(newLi);
   setHeight(id);
 }
