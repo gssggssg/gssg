@@ -202,9 +202,7 @@ number.forEach((item, index ,array) =>{
 | reduce() | 否 | 为函数累计处理后的结果 | 累加器 |
 | forEach() | 是 | 没有返回值为undefined | 循环 |
 
-**​**
 
-**​**
 
 **本文参考：**
 
