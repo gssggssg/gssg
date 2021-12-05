@@ -117,7 +117,6 @@ clearTimeout(timeoutID);
 
 用法很简单
 ```javascript
-
 function timer() {
   timerId = setTimeout(addNum, 1000);
 }
