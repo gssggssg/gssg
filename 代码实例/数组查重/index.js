@@ -3,13 +3,14 @@ const arr1 = [1, '2', '2', 'dasdsds', 'dasdsds', 'dasdsds', 'dasdsds', 8, '8', 5
 
 // 数组查重
 /*
-  1. 试用for循环 与 indexOf 相当于便利两次数组
-  2. indexOf IE9以下不支持
+  1. 试用for循环 与 indexOf 相当于遍历两次数组
+  2. indexOf IE9以下不支持 返回值为下标
+  3. includes 是ES2016 引入的方法
 */
 function rechecking(arr) {
   let newArr = [];
   for (let index = 0; index < arr.length; index++) {
-    if (newArr.indexOf(arr[index]) === -1) {
+    if (!newArr.includes(arr[index])) {
       newArr.push(arr[index]);
     }
   }
