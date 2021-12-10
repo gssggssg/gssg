@@ -1,5 +1,5 @@
 /**
- * This is a Promise example
+ * This is a Generator example
  * @module Generator
  * @return iterator
  */
