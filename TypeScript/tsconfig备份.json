@@ -1,0 +1,44 @@
+{
+    "include": [
+        "./src/**/*"
+    ],
+    "compilerOptions": {
+        //  outDir 编译后的文件存到到哪个目录下,默认是每一个ts文件的当前目录,,下面的配置就是把ts编译到build目录下
+        "outDir": "./build",
+
+        // 只编译修改过的文件,这个时候会生成tsconfig.tsbuildinfo,下次编译的时候会进行对比只编译修改过的文件 
+        "incremental": true,
+        // 指定 ECMAScript 目标版本: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', or 'ESNEXT'
+        "target": "es6",
+         // 指定使用模块: 'commonjs', 'amd', 'system', 'umd' or 'es2015'
+        
+        "module": "es6",
+
+        // 允许编译JS
+        "allowJs": true,
+        /* 是否检测JS的语法,例如下面的语法编辑器会报错
+        let name = 'paul';
+        console.log(name.a.b) */
+        "checkJs": true,
+      
+        // 严格模式将会打开下面的几个选项
+        "strict": false, 
+        /* 不允许变量或函数参数具有隐式any类型,例如
+        function(name) {
+            return name;
+        } */
+        "noImplicitAny": true,
+        // null类型检测,const teacher: string = null;会报错
+        "strictNullChecks": true,
+        // 对函数参数进行严格逆变比较
+        "strictFunctionTypes": true,
+        // 严格检查bind call apply
+        "strictBindCallApply": true,
+        // 此规则将验证构造函数内部初始化前后已定义的属性。
+        "strictPropertyInitialization": true,
+        // 检测this是否隐式指定
+        "noImplicitThis": true,
+        // 使用js的严格模式,在每一个文件上部声明 use strict
+        "alwaysStrict": true,
+    }
+}
