@@ -55,6 +55,34 @@ module.exports = {
                 ],
                 // 要排除的文件
                 exclude: /node_modules/,
+            },
+            {
+                // 设置less文件的处理
+                test: /\.less$/,
+                // 由下往上执行
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    // 引入postcss 
+                    {
+                        loader: "postcss-loader",
+                        options: {
+                            postcssOptions: {
+                                plugins: [
+                                    [
+                                        "postcss-preset-env",
+                                        // 设置浏览器
+                                        {
+                                            // 设置兼容什么浏览器
+                                            browsers: "last 2 versions", // 兼容浏览器最新的两个版本
+                                        }
+                                    ]
+                                ]
+                            }
+                        }
+                    },
+                    "less-loader",
+                ]
             }
         ]
     },

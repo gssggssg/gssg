@@ -1,3 +1,6 @@
-import {test} from './excet'
+import { content } from './excet';
+// 引入样式
+import './index.less';
 
-console.log(test+1);
+const root = document.getElementById("root");
+root.innerHTML = content;
