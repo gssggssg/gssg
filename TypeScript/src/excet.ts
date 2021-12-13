@@ -1,1 +1,0 @@
-export const content = "<h1>Hello TypeScript</h1>";
