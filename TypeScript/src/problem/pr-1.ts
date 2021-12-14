@@ -1,10 +1,8 @@
-export const ex1 = (function (): void {
-
+export const pr1 = (function (): void {
   type User = {
     id: number;
     kind: string;
   };
-
   function makeCustomer<T extends User>(u: T): T {
     // Error（TS 编译器版本：v4.4.2）
     // Type '{ id: number; kind: string; }' is not assignable to type 'T'.
@@ -15,5 +13,4 @@ export const ex1 = (function (): void {
       kind: 'customer'
     }
   }
-
 }())
