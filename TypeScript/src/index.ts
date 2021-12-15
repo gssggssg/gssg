@@ -1,6 +1,4 @@
-import * as problem from './problem/index';
+import { snakeBut } from "./Snake/index";
+import  "./index.less";
 
-// 引入样式
-import './index.less';
-
-console.log(problem);
+snakeBut;
