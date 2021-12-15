@@ -1,0 +1,57 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+#GluttonousSnake{
+    display: none;
+    width: 360px;
+    height: 360px;
+    background-color: #1ba784;
+    overflow: hidden;
+    border: 10px solid #c4d7d6; 
+    border-radius: 16px;
+    margin: 50px auto;
+
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-around;
+    font-size: 20px;
+    font-weight: bold;
+
+    &>#stage{
+        border:1px solid #fff;
+        width: 302px;
+        height: 302px;
+        position: relative;
+        border-radius: 2px;
+        &>#snake{
+            position: absolute;
+            &>div{
+                position: absolute;
+                background-color: #fff;
+                width: 10px;
+                height: 10px;
+                border:1px solid #1ba784;
+            }
+        }
+        &>#food{
+            position: absolute;
+            top: 10px;
+            left: 40px;
+            &>div{
+                position: absolute;
+                background-color: #fff;
+                width: 10px;
+                height: 10px;
+                border:1px solid #1ba784;
+            }
+        }
+    }
+    &>#scoreboard{
+        width: 300px;
+        display: flex;
+        justify-content: space-between;
+    }
+}
