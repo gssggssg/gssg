@@ -4,5 +4,3 @@ const GluttonousSnake = document.getElementById("GluttonousSnake");
 snakeBut.onclick = () => {
     GluttonousSnake.style.display = "flex";
 }
-
-console.log(snakeBut)
