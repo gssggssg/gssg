@@ -71,7 +71,7 @@ Array.map(callback(currentValue, index, array) { // 函数体 }, thisValue)
 
 2. **thisValue的参数**
 
-执行 callback 时，用于 this 的值。<br />​<br />
+执行 callback 时，用于 this 的值。
 ## 返回值：
 是一个由原数组每个元素执行回调函数的结果组成的新数组。
 ## 示例：
