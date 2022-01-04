@@ -27,6 +27,7 @@ for (const value of iterator) {
   console.log(value);
 }
 /**
+ * export 输出
  * 打游戏
  * 听音乐
  * 打球

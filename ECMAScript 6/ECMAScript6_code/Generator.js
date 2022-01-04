@@ -22,8 +22,9 @@ console.log(result.next()); // {value: undefined, done: true}
 
 for (const value of generator()) {
   console.log(value);
-}
+};
 /**
+ * export 输出
  * A
  * B
  * undefined

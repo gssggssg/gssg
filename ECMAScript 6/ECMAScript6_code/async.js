@@ -28,6 +28,7 @@ const result = asyncFn(1000);
 console.log(result); // Promise{}
 
 /**
+ * export 输出
  * 执行顺序
  * Promise{}
  * 1s 后 第一个await 
