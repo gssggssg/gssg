@@ -1,17 +1,20 @@
-export const pr1 = (function (): void {
-  // type User = {
-  //   id: number;
-  //   kind: string;
-  // };
-  // function makeCustomer<T extends User>(u: T): T {
-  //   // Error（TS 编译器版本：v4.4.2）
-  //   // Type '{ id: number; kind: string; }' is not assignable to type 'T'.
-  //   // '{ id: number; kind: string; }' is assignable to the constraint of type 'T', 
-  //   // but 'T' could be instantiated with a different subtype of constraint 'User'.
-  //   return {
-  //     id: u.id,
-  //     kind: 'customer'
-  //   }
-  // }
-  
-}())
+/**
+ * 泛型
+ */
+interface Identities<V, M> {
+  value: V,
+  message: M
+}
+function identity<T, U>(value: T, message: U): Identities<T, U> {
+  console.log(value + ": " + typeof (value));
+  console.log(message + ": " + typeof (message));
+  let identities: Identities<T, U> = {
+    value,
+    message
+  };
+  return identities;
+}
+
+console.log(identity(68, "Semlinker"));
+
+export const pr1 = identity;
