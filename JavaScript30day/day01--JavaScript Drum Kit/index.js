@@ -18,7 +18,6 @@ function keyDown(event) {
   // console.log(event.keyCode)
   switch (event.keyCode) {  // 获取当前按下键盘键的编码
     case 65:
-
       listAudios[0].currentTime = 0
       listLi[0].className = "active";
       listAudios[0].currentTime = 0;
@@ -62,14 +61,12 @@ function keyDown(event) {
       break;
     case 75:
       listAudios[7].currentTime = 0
-
       listLi[7].className = "active"
       listAudios[7].currentTime = 0;
       listAudios[7].play()
       break;
     case 76:
       listAudios[8].currentTime = 0
-
       listLi[8].className = "active"
       listAudios[8].currentTime = 0;
       listAudios[8].play()
@@ -83,7 +80,7 @@ function keyUP(event) {
 
   let arrIndex = arr.indexOf(event.keyCode)
 
-  if(arrIndex!==-1){
+  if (arrIndex !== -1) {
     listLi[arrIndex].className = null
   }
 

@@ -1,3 +1,6 @@
+/**
+ * day02-时钟实间
+ */
 
 // 时针
 const hourHand = document.getElementById("hourHand");
@@ -33,5 +36,3 @@ function turn(data) {
   minuteHand.style.transform = `rotate(${minuteHandNum / 60 * 360}deg)`
   secondHand.style.transform = `rotate(${secondHandNum / 60 * 360}deg)`
 }
-
-
