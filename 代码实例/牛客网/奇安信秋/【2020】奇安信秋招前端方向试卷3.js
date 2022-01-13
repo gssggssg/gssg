@@ -1,11 +1,21 @@
-// 编程题第一题
 // 测试用例
 const arr = [
   [1, 1, 1, 1, 0],
   [1, 1, 0, 1, 0],
   [1, 1, 0, 0, 0],
   [0, 0, 1, 0, 1]
-]
+];
+
+const arr1 = [
+  [0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+  [0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
+  [0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0],
+  [0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0],
+];
 
 /**
  * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
@@ -15,47 +25,72 @@ const arr = [
  */
 function numIslands(grid) {
   let num = 0;
-  let newArr = grid;
-  let nums = 0;
-  let isNo = false;
-  let mapFrid = grid.map(
-    (item, index) => {
-      let aaa = item.map(
-        (item1, index1) => {
-          let isCan = false
-          isNo = false
-          if (item1 === 1) {
-            // 上
-            isCan = newArr[index - 1] && newArr[index - 1][index1] ? true : false
-            // 下
-            isCan = isCan === true ? true : newArr[index + 1] && newArr[index + 1][index1] ? true : false
-            // 左
-            isCan = isCan === true ? true : newArr[index][index1 - 1] ? true : false;
-            // 右
-            isCan = isCan === true ? true : newArr[index][index1 + 1] ? true : false;
-            isCan === true ? newArr[index][index1] = nums : false;
-            isNo = true
+  let nums = 0
+  let newGrid = grid;
+  let newarr = newGrid.map((item) => item.map(() => num++));
+  let arr = [[]];
+  let checkArr = (param) => {
+    let isHave = false;
+    let indexx = 0;
+    param.forEach(
+      (item) => {
+        let pd = item.index >= 0 && item.index < grid.length && item.index1 >= 0 && item.index < grid[0].length;
+        arr.length > 0 && arr.forEach(
+          (item1, index1) => {
+            if (pd && item1.includes(newarr[item.index][item.index1])) {
+              isHave = true;
+              indexx = index1;
+            }
           }
-          isNo && nums++;
-          return nums;
-        }
-      )
-      return aaa
-    }
-  );
-  newArr.forEach((item) => {
-    item.forEach(
-      (item1) => {
-        item1 === 1 && num++
+        )
       }
     )
-  });
-
-  return num;
+    if (!isHave) {
+      return false;
+    }
+    return indexx;
+  };
+  newGrid.map(
+    (item, index) => {
+      item.map(
+        (item1, index1) => {
+          if (item1 === 1) {
+            let indexs = [
+              {
+                index: index - 1,
+                index1: index1,
+              },
+              {
+                index: index + 1,
+                index1: index1,
+              },
+              {
+                index: index,
+                index1: index1 - 1,
+              },
+              {
+                index: index,
+                index1: index1 + 1,
+              },
+            ];
+            let b = checkArr(indexs);
+            if (b === false) {
+              nums = arr[0].length <= 0 ? 0 : arr.length;
+              arr[nums] = [];
+            } else {
+              nums = b;
+            }
+            arr[nums].push(newarr[index][index1]);
+          }
+        }
+      )
+    }
+  );
+  return ++nums;
 }
 const jg = numIslands(arr);
-
 console.log(jg)
 module.exports = {
   numIslands: numIslands
 };
+console.log("object")
