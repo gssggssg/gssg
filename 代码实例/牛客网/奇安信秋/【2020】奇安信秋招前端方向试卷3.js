@@ -29,15 +29,16 @@ function numIslands(grid) {
   let newGrid = grid;
   let newarr = newGrid.map((item) => item.map(() => num++));
   let arr = [[]];
+  // 检查在 newarr 是否存在
   let checkArr = (param) => {
     let isHave = false;
     let indexx = 0;
     param.forEach(
       (item) => {
-        let pd = item.index >= 0 && item.index < grid.length && item.index1 >= 0 && item.index < grid[0].length;
+        let limit = item.index >= 0 && item.index < grid.length && item.index1 >= 0 && item.index < grid[0].length;
         arr.length > 0 && arr.forEach(
           (item1, index1) => {
-            if (pd && item1.includes(newarr[item.index][item.index1])) {
+            if (limit && item1.includes(newarr[item.index][item.index1])) {
               isHave = true;
               indexx = index1;
             }
@@ -50,11 +51,13 @@ function numIslands(grid) {
     }
     return indexx;
   };
-  newGrid.map(
+
+  newGrid.forEach(
     (item, index) => {
-      item.map(
+      item.forEach(
         (item1, index1) => {
           if (item1 === 1) {
+            // 上下左右的位置
             let indexs = [
               {
                 index: index - 1,
@@ -73,12 +76,12 @@ function numIslands(grid) {
                 index1: index1 + 1,
               },
             ];
-            let b = checkArr(indexs);
-            if (b === false) {
+            let exists = checkArr(indexs);
+            if (exists === false) {
               nums = arr[0].length <= 0 ? 0 : arr.length;
               arr[nums] = [];
             } else {
-              nums = b;
+              nums = exists;
             }
             arr[nums].push(newarr[index][index1]);
           }
@@ -88,8 +91,8 @@ function numIslands(grid) {
   );
   return ++nums;
 }
-const jg = numIslands(arr);
-console.log(jg)
+const result = numIslands(arr1);
+console.log(result);
 module.exports = {
   numIslands: numIslands
 };
