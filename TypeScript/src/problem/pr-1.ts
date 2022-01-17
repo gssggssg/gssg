@@ -6,8 +6,6 @@ interface Identities<V, M> {
   message: M
 }
 function identity<T, U>(value: T, message: U): Identities<T, U> {
-  console.log(value + ": " + typeof (value));
-  console.log(message + ": " + typeof (message));
   let identities: Identities<T, U> = {
     value,
     message
