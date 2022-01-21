@@ -9,7 +9,7 @@
 属性用于存放表示正无穷大的数值。
 2. -Infinity 
 属性用于存放表示负无穷大的数值。
-2. NaN
+3. NaN
 属性用于引用特殊的非数字值。
 
 ### e可以代替任意零    
@@ -86,7 +86,7 @@ num.toFixed(1)
 #### isNaN() 与 isFinite()
 1. isNaN(value)
 将其参数转换为数字，然后测试它是否为 NaN：
-1. isFinite(value)
+2. isFinite(value)
 将其参数转换为数字，如果是常规数字，则返回 true，而不是 NaN/Infinity/-Infinity：
 
 ```javascript
