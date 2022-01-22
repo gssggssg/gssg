@@ -58,6 +58,8 @@ let timerId = setInterval(func|code, delay, arg1, arg2, ...)
   // 没有写停止计时器代码
 </script>
 ```
+
+
 # setTimeout
 ## 描述
 `setTimeout()`返回一个整数，表示定时器的编号，以后可以用来取消这个定时器。
@@ -75,7 +77,6 @@ let timerId = setTimeout(func|code, delay, arg1, arg2, ...)
 | arg1，arg2… | 选填 | 要传入被执行函数（或代码字符串）的参数列表（IE9 以下不支持） |
 
 ⚠️参数`func|code` 一般传入的都是函数。由于某些历史原因，支持传入代码字符串，但是不建议这样做。
-
 
 ## 用法:
 `setTimeout()`用法和 `setInterval()`是一样的，
@@ -98,7 +99,6 @@ let timerId = setTimeout(func|code, delay, arg1, arg2, ...)
   function addNum() {
     showNum.innerText = `${num++}`;
   }
-
 </script>
 ```
 
