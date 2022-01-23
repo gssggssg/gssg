@@ -29,7 +29,6 @@ body{
   justify-content: space-evenly;
   width: 90%;
   margin: auto;
-  /* background-color: #999; */
 }
 
 .nav ul li ,
@@ -131,6 +130,7 @@ body{
   color: #5698c3;
 }
 
+/* 代码显示框 */
 .content .module .example code,
 .content .module .example pre,
 .content .module .example textarea{
