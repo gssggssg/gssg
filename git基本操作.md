@@ -172,6 +172,11 @@ git remote add origin "远程仓库地址"
 git push -u origin 分支名
 ```
 
+## 常用命令
+```git
+git stash   // 隐藏文件
+git stash pop    // 显示文件
+```
 
 ## 命令总结
 
