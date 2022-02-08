@@ -178,7 +178,7 @@ git stash   // 隐藏文件
 git stash pop    // 显示文件
 
 git pull origin dev // 去获取远程仓库中develop分支上的commits，
-然后把origin/dev merge到你目前check out下来的分支中
+// 然后把origin/dev merge到你目前check out下来的分支中
 git pull // 省去了指定分支，默认就是去你之前check out 的分支上去操作，
 ```
 
