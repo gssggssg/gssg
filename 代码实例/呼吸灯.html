@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>呼吸灯示例</title>
+	<style type="text/css">
+		.light-background {
+			width: 400px;
+			height: 200px;
+			margin: auto;
+			background-color: black;
+			position: relative;
+		}
+
+		.breath-light {
+			width: 100px;
+			height: 14px;
+			position: absolute;
+			top: 90px;
+			left: 130px;
+			background-color: #00c1de;
+			opacity: 0.3;
+			-moz-box-shadow: 0px 0px 20px #00c1de;
+			-webkit-box-shadow: 0px 0px 20px #00c1de;
+			box-shadow: 0px 0px 20px #00c1de;
+			border-radius: 10px;
+		}
+
+		.star-breath {
+			opacity: 0.1;
+			animation: breath 3s ease-in-out infinite;
+			/* IE10、Firefox and Opera，IE9以及更早的版本不支持 */
+			-webkit-animation: breath 3s ease-in-out infinite;
+			/*Safari and Chrome*/
+		}
+
+		@keyframes breath {
+			from {
+				opacity: 0.3;
+			}
+
+			/* 动画开始时的不透明度 */
+			50% {
+				opacity: 1;
+			}
+
+			/* 动画50% 时的不透明度 */
+			to {
+				opacity: 0.3;
+			}
+
+			/* 动画结束时的不透明度 */
+		}
+
+		@-webkit-keyframes breath {
+			from {
+				opacity: 0.3;
+			}
+
+			/* 动画开始时的不透明度 */
+			50% {
+				opacity: 1;
+			}
+
+			/* 动画50% 时的不透明度 */
+			to {
+				opacity: 0.3;
+			}
+
+			/* 动画结束时的不透明度 */
+		}
+	</style>
+</head>
+
+<body>
+	<div class="light-background">
+		<div class="breath-light star-breath">
+		</div>
+	</div>
+</body>
+
+</html>
