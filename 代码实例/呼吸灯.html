@@ -5,20 +5,27 @@
 	<meta charset="UTF-8">
 	<title>呼吸灯示例</title>
 	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;	
+		}
+
 		.light-background {
 			width: 400px;
 			height: 200px;
-			margin: auto;
+			margin: 20px auto;
 			background-color: black;
 			position: relative;
 		}
 
-		.breath-light {
+		.light-background .breath-light {
 			width: 100px;
 			height: 14px;
 			position: absolute;
-			top: 90px;
-			left: 130px;
+			top: 50%;
+			left: 0;
+			right: 0;
+			margin: auto;
 			background-color: #00c1de;
 			opacity: 0.3;
 			-moz-box-shadow: 0px 0px 20px #00c1de;
@@ -27,7 +34,7 @@
 			border-radius: 10px;
 		}
 
-		.star-breath {
+		.light-background .star-breath {
 			opacity: 0.1;
 			animation: breath 3s ease-in-out infinite;
 			/* IE10、Firefox and Opera，IE9以及更早的版本不支持 */
