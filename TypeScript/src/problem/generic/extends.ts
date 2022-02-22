@@ -15,7 +15,7 @@ const extendsGssg = (function () {
     name: string;
   };
 
-  // A2 extends 了A1 满足
+  // A2 extends A1
   interface A2 extends A1 {
     style: string,
   };
