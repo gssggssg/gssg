@@ -28,7 +28,7 @@ li{
 .content{
     min-width: 300px;
     max-width: 1400px;
-    width: 1200px;
+    /* width: 1200px; */
     padding: 40px;
     margin: auto;
 }
