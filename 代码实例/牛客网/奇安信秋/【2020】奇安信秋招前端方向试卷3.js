@@ -96,4 +96,3 @@ console.log(result);
 module.exports = {
   numIslands: numIslands
 };
-console.log("object")
