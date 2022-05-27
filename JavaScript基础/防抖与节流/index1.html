@@ -13,7 +13,7 @@
 <script>
     function debounce(func, delay) {
         // 一个setTimeout对象的签名（初始值应该为undefined）
-        var timer;
+        let timer;
         return function () {
             // timer不是空的情况下，说明执行过 "timer = window.setTimeout(func, delay);" 这行代码
             // 这意味着本函数被调用过一次
@@ -26,7 +26,7 @@
         }
     }
     // 所有的调用过程都是用一个debounce控制
-    var handelClick = debounce(function () { console.log('hello') }, 1000);
+    const handelClick = debounce(function () { console.log('hello') }, 1000);
 </script>
 
 </html>
