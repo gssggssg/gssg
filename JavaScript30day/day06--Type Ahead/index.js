@@ -50,7 +50,7 @@ input.oninput = (e) => {
             dropDownCon.style.height = null;
             dropDown.style.transform = `rotate(0deg)`
           } else {
-            dropDownCon?.style.height = "300px";
+            dropDownCon.style.height = '300px';
             dropDown.style.transform = `rotate(180deg)`
             newItemCon.innerHTML = `
               <ul>
