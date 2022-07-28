@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <details>
+      <summary>Click Here to get the user details</summary>
+      <div>你好</div>
+    </details>
+    <h2>Shoppping List(Content Editable)</h2>
+    <ul class="content-editable" contenteditable="true">
+      <li>1. Milk</li>
+      <li>2. Bread</li>
+      <li>3. Honey</li>
+    </ul>
+    <p>
+      Did you know, you can <mark>"Highlight something interesting"</mark> just
+      with an HTML tag?
+    </p>
+    <form oninput="x.value=parseInt(a.value) * parseInt(b.value)">
+      <input type="number" id="a" value="0" />
+      * <input type="number" id="b" value="0" /> =
+      <output name="x" for="a b"></output>
+    </form>
+    <form action="" method="get">
+      <label for="fruit">Choose your fruit from the list:</label>
+      <input list="fruits" name="fruit" id="fruit" />
+      <datalist id="fruits">
+        <option value="Apple"></option>
+        <option value="Orange"></option>
+        <option value="Banana"></option>
+        <option value="Mango"></option>
+        <option value="Avacado"></option>
+      </datalist>
+
+      <input type="submit" />
+    </form>
+    <form method="post">
+      <input type="range" name="range" min="0" max="100" step="1" value="" />
+    </form>
+    <div class="range">
+      <output id="output" name="result"> </output>
+    </div>
+    <label for="home">/home/atapas</label>
+    <meter id="home" value="4" min="0" max="10">2 out of 10</meter><br />
+
+    <label for="root">/root</label>
+    <meter id="root" value="0.6">60%</meter><br />
+    <progress id="file" value="32" max="100">32%</progress>
+    <input type="text" id="username1" name="username" required />
+    <input type="color" onchange="showColor(event)" />
+    <p id="colorMe">Color Me!</p>
+  </body>
+</html>
