@@ -21,6 +21,9 @@
 - 支持的 HTML 元素
 - 转义字符
 
+可以参考
+<https://github.com/DavidAnson/markdownlint/blob/v0.25.1/doc/Rules.md#md001>
+
 ## 标题
 
 在 Markdown 中标题可以使用两种方式来
