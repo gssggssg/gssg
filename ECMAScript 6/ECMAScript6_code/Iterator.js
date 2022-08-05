@@ -1,5 +1,5 @@
 /**
- * This is a Promise example
+ * This is a iterator example
  * @module Iterator
  * @return iterator
  */
@@ -15,13 +15,13 @@ const iterator = {
     return {
       next() {
         if (index <= _this.interest.length) {
-          return { value: _this.interest[index++], done: false }
+          return { value: _this.interest[index++], done: false };
         }
-        return { value: undefined, done: true }
+        return { value: undefined, done: true };
       },
-    }
-  }
-}
+    };
+  },
+};
 
 for (const value of iterator) {
   console.log(value);

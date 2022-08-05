@@ -5,8 +5,8 @@
  */
 
 function* generator() {
-  let A = yield 'A';
-  let B = yield 'B';
+  let A = yield "A";
+  let B = yield "B";
   yield A;
   yield B;
   return "C";
@@ -22,7 +22,7 @@ console.log(result.next()); // {value: undefined, done: true}
 
 for (const value of generator()) {
   console.log(value);
-};
+}
 /**
  * export 输出
  * A
