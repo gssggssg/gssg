@@ -6,3 +6,4 @@ TypeScript/package-lock.json
 server/package-lock.json
 server/node_modules
 .vscode/*
+*/node_modules
