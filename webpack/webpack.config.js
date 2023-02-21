@@ -38,7 +38,6 @@ module.exports = {
             [
               "@babel/preset-env",
               {
-                
                 useBuiltIns: "usage",
                 corejs: { version: 3 },
                 targets: {
@@ -96,4 +95,15 @@ module.exports = {
     open: true,
     hot: true, // 开启 HMR 热更新功能
   },
+
+  /**
+   * source-map：由于运行的代码都是构建后的代码，不便于阅读调试，所以可以使用 source-map 来对源代码到构建后代码的映射（如果构建后代码出错了，通过映射可以追踪代码报错位置）
+   * 开发环境：
+   *  考虑的点，便于调试，定位到行与列
+   *  cheap-module-source-map
+   * 生产环境：
+   *  考虑的点，隐藏源码，体积小
+   *  source-map
+   */
+  devtool: "source-map",
 };
