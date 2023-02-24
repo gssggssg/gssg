@@ -6,10 +6,27 @@ const OptimizeCssAssetsWebpackPlugin = require("optimize-css-assets-webpack-plug
 
 process.env.NODE_ENV = "development";
 
+/**
+ * 缓存
+ *  babel缓存
+ *    cacheDirectory: true
+ *  文件资源缓存
+ *    hash： 每次一webpack构建时都会生成唯一的一个hash的值
+ *      问题：因为js与css同时使用一个hash值，通过重新打包，会导致所有缓存失效，有些还需要缓存的文件也会失效
+ *    chunkhash：根据chunk生成的hash值，如果打包来源于同一个chunk，那么hash值就一样
+ *      问题：因为js与css得hash值还是一样，因为css是被引到js中得，所以他们属于一个chunk
+ *    contenthash：根据文件的内容生成hash值，不同文件的hash值一定不一样
+ */
+
 module.exports = {
   entry: ["./src/index.js", "./src/index.html"], // 将html文件加入entry中，解决 html文件更改热更新
   output: {
-    filename: "js/built.js",
+   /**
+    * 文件缓存：将输出文件名加入[hash:10]，css一样
+    * 解决问题：每次更新打包后的文件，由于每次wabpack打包hash值不同，所以每次文件更新，浏览器强制缓存将失效
+    * 缺点：没有修改的文件，也将使强制缓存失效，
+    */
+    filename: "js/built.[hash:10].js",
     path: resolve(__dirname, "build"),
   },
   module: {
@@ -97,7 +114,7 @@ module.exports = {
       },
     }),
     new MiniCssExtractPlugin({
-      filename: "css/built.css",
+      filename: "css/built.[hash:10].css",
     }),
     new OptimizeCssAssetsWebpackPlugin(),
   ],
