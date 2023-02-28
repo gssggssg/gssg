@@ -18,6 +18,18 @@ process.env.NODE_ENV = "development";
  *    contenthash：根据文件的内容生成hash值，不同文件的hash值一定不一样
  */
 
+
+/**
+ * tree-shaking 树摇
+ *  1. 必须使用ES6模块化
+ *  2. 开启 production 环境
+ * 
+ * 在 packge.json 配置 
+ *  "sideEffects": false 所有代码都可以进行 tree-shaking
+ *    问题： 可能会把 css/@babel/polyfill(副作用)文件干掉
+ *  "sideEffects": ["*.css","*.less"]
+ */
+
 module.exports = {
   entry: ["./src/index.js", "./src/index.html"], // 将html文件加入entry中，解决 html文件更改热更新
   output: {

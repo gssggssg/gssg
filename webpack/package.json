@@ -54,5 +54,6 @@
   },
   "devDependencies": {
     "webpack-cli": "^3.3.12"
-  }
+  },
+  "sideEffects": false
 }
