@@ -149,4 +149,15 @@ module.exports = {
    *  source-map
    */
   devtool: "source-map",
+
+  /**
+   * 1. 将node_modules文件中得代码单独打包成一个chunk
+   * 2. 自动分析多入口chunk中，有没有公共得文件，如果有会打包成单独一个chunk
+   */
+  optimization:{
+    splitChunks:{
+      chunks:'all'
+    }
+  }
+
 };
