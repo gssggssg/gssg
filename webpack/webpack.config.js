@@ -18,13 +18,12 @@ process.env.NODE_ENV = "development";
  *    contenthash：根据文件的内容生成hash值，不同文件的hash值一定不一样
  */
 
-
 /**
  * tree-shaking 树摇
  *  1. 必须使用ES6模块化
  *  2. 开启 production 环境
- * 
- * 在 packge.json 配置 
+ *
+ * 在 packge.json 配置
  *  "sideEffects": false 所有代码都可以进行 tree-shaking
  *    问题： 可能会把 css/@babel/polyfill(副作用)文件干掉
  *  "sideEffects": ["*.css","*.less"]
@@ -33,11 +32,11 @@ process.env.NODE_ENV = "development";
 module.exports = {
   entry: ["./src/index.js", "./src/index.html"], // 将html文件加入entry中，解决 html文件更改热更新
   output: {
-   /**
-    * 文件缓存：将输出文件名加入[hash:10]，css一样
-    * 解决问题：每次更新打包后的文件，由于每次wabpack打包hash值不同，所以每次文件更新，浏览器强制缓存将失效
-    * 缺点：没有修改的文件，也将使强制缓存失效，
-    */
+    /**
+     * 文件缓存：将输出文件名加入[hash:10]，css一样
+     * 解决问题：每次更新打包后的文件，由于每次wabpack打包hash值不同，所以每次文件更新，浏览器强制缓存将失效
+     * 缺点：没有修改的文件，也将使强制缓存失效，
+     */
     filename: "js/built.[hash:10].js",
     path: resolve(__dirname, "build"),
   },
@@ -68,28 +67,44 @@ module.exports = {
           {
             test: /\.js$/,
             exclude: /node_modules/,
-            loader: "babel-loader",
-            options: {
-              presets: [
-                [
-                  "@babel/preset-env",
-                  {
-                    useBuiltIns: "usage",
-                    corejs: { version: 3 },
-                    targets: {
-                      chrome: "70",
-                      firefox: "50",
-                      ie: "9",
-                    },
-                  },
-                ],
-              ],
+            use: [
               /**
-               * babel：缓存，开启缓存，用于缓存没用被修改的文件
-               * 例：一个文件被修改，再次打包只会打包那一个被修改的文件，其余没用被修改过的文件，直接读取缓存就可以。
+               * 开启多进程打包
+               * 进程启动需要时间，进程通信也有开销
+               * 当工作消耗时间长，才需要多进程打包
                */
-              cacheDirectory: true,
-            },
+              {
+                loader: "thread-loader",
+                options: {
+                  workers: 2, // 进程数为2
+                },
+              },
+
+              {
+                loader: "babel-loader",
+                options: {
+                  presets: [
+                    [
+                      "@babel/preset-env",
+                      {
+                        useBuiltIns: "usage",
+                        corejs: { version: 3 },
+                        targets: {
+                          chrome: "70",
+                          firefox: "50",
+                          ie: "9",
+                        },
+                      },
+                    ],
+                  ],
+                  /**
+                   * babel：缓存，开启缓存，用于缓存没用被修改的文件
+                   * 例：一个文件被修改，再次打包只会打包那一个被修改的文件，其余没用被修改过的文件，直接读取缓存就可以。
+                   */
+                  cacheDirectory: true,
+                },
+              },
+            ],
           },
           {
             test: /\.(jpg|png|gif)$/,
@@ -154,10 +169,9 @@ module.exports = {
    * 1. 将node_modules文件中得代码单独打包成一个chunk
    * 2. 自动分析多入口chunk中，有没有公共得文件，如果有会打包成单独一个chunk
    */
-  optimization:{
-    splitChunks:{
-      chunks:'all'
-    }
-  }
-
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+    },
+  },
 };
