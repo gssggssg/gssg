@@ -73,6 +73,7 @@ output: {
 用于打包的 **library** 向外暴露，用于
 
 #### 示例
+
 ```js
 output: {
   library: "[name]";
@@ -83,7 +84,7 @@ output: {
 
 #### 描述
 
-为了让`output.library`暴露的  **library** 和其他环境兼容，`libraryTarget` 控制以不同形式暴露 `library`
+为了让`output.library`暴露的 **library** 和其他环境兼容，`libraryTarget` 控制以不同形式暴露 `library`
 
 #### 示例
 

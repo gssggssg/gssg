@@ -1,4 +1,4 @@
-# webpack配置-entry
+# webpack 配置-entry
 
 ## 描述
 
@@ -12,7 +12,7 @@
 
 ### 类型
 
-```ts
+```
 string | [string] | object { <key>: string | [string] } | (function: () => string | [string] | object { <key>: string | [string] })
 ```
 
@@ -68,5 +68,7 @@ entry: "./src/index.js",
 entry: () => './index',
 
 // 异步函数
-entry: () => new Promise((resolve) => resolve(['./index', './home'])),
+    entry
+:
+() => new Promise((resolve) => resolve(['./index', './home'])),
 ```

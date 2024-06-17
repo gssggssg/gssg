@@ -12,6 +12,8 @@ git branch -v # 查看每一个分支上的最后一次commit
 git branch 分支名  # 创建分支
 
 git checkout 分支名 # 切换分支
+
+git checkout -b 分支名 # 创建并切换分支
 ```
 
 ## 代码合并（git push）
